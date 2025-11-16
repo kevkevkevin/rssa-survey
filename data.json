@@ -29,6 +29,16 @@
     "files": ["rj1.png", "rj2.png", "rj3.png", "rj4.png", "rj5.png", "rj6.png", "rj7.png", "rj8.png", "rj9.png"],
     "note": "9 certs for Kevin"
   },
+  "kevkev_sliders_agency": {
+    "email": "kevkev@sliders.agency",
+    "files": ["test1.png", "test2.png", "test3.png", "test4.png", "test5.png"],
+    "note": "For testing purposes only"
+  },
+  "test_sliders_agency": {
+    "email": "test@sliders.agency",
+    "files": ["test1.png", "test2.png", "test3.png", "test4.png", "test5.png"],
+    "note": "For testing purposes only"
+  },
   "aalnakhli3_moh_gov_sa": {
     "email": "aalnakhli3@moh.gov.sa",
     "files": [
