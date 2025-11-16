@@ -702,27 +702,44 @@
       .replace(/[^a-z0-9]+/g, "_");
   }
 
-  async function hasSubmitted(key) {
-    try {
-      const ref = doc(db, "rssasurvey", key);
-      const snap = await getDoc(ref);
-
-      if (!snap.exists()) {
-        console.log("hasSubmitted:", key, "=> no doc");
-        return false;
-      }
-
+  async function hasSubmitted(key, email) {
+  try {
+    // Helper to inspect a snapshot
+    const checkSnap = (snap) => {
+      if (!snap || !snap.exists()) return false;
       const d = snap.data() || {};
-      const submitted =
-        Array.isArray(d.submissions) && d.submissions.length > 0;
+      return Array.isArray(d.submissions) && d.submissions.length > 0;
+    };
 
-      console.log("hasSubmitted:", key, "=>", submitted);
-      return submitted;
-    } catch (e) {
-      console.error("hasSubmitted error:", e);
-      return false;
+    // 1) Try doc with the normalized key (a_abd88_hotmail_com)
+    const refKey = doc(db, "rssasurvey", key);
+    const snapKey = await getDoc(refKey);
+    if (checkSnap(snapKey)) {
+      console.log("hasSubmitted: found by key", key);
+      return true;
     }
+
+    // 2) Fallback: try raw email as doc ID (a.abd88@hotmail.com)
+    if (email) {
+      const rawId = email.trim().toLowerCase();
+      if (rawId !== key) {
+        const refRaw = doc(db, "rssasurvey", rawId);
+        const snapRaw = await getDoc(refRaw);
+        if (checkSnap(snapRaw)) {
+          console.log("hasSubmitted: found by raw email", rawId);
+          return true;
+        }
+      }
+    }
+
+    console.log("hasSubmitted: no submission found for", key, email);
+    return false;
+  } catch (e) {
+    console.error("hasSubmitted error:", e);
+    return false;
   }
+}
+
 
 
 
@@ -760,9 +777,10 @@ btnCheck.onclick = async () => {
     fullnameEl.value = entry.name || "";
     showWelcome(prefName);
 
-    // check if already submitted
-    if (await hasSubmitted(key)) {
+    // ✅ NEW: pass both key + email here
+    if (await hasSubmitted(key, email)) {
       msg.textContent = "You already submitted. Showing certificates.";
+      // directly show certificates, NO survey
       showCertificatesForKey(key);
       return;
     }
@@ -780,6 +798,7 @@ btnCheck.onclick = async () => {
     hideSpinner();
   }
 };
+
 
 
 
