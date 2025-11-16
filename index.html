@@ -704,14 +704,14 @@
 
   async function hasSubmitted(key, email) {
   try {
-    // Helper to inspect a snapshot
+    // Helper to check a snapshot
     const checkSnap = (snap) => {
       if (!snap || !snap.exists()) return false;
       const d = snap.data() || {};
       return Array.isArray(d.submissions) && d.submissions.length > 0;
     };
 
-    // 1) Try doc with the normalized key (a_abd88_hotmail_com)
+    // 1) Try document with normalized key (currentEmailKey)
     const refKey = doc(db, "rssasurvey", key);
     const snapKey = await getDoc(refKey);
     if (checkSnap(snapKey)) {
@@ -719,7 +719,7 @@
       return true;
     }
 
-    // 2) Fallback: try raw email as doc ID (a.abd88@hotmail.com)
+    // 2) Fallback: try raw email as doc ID (old data)
     if (email) {
       const rawId = email.trim().toLowerCase();
       if (rawId !== key) {
@@ -739,9 +739,6 @@
     return false;
   }
 }
-
-
-
 
 
  /* ---- BUTTON: Check ---- */
@@ -778,12 +775,14 @@ btnCheck.onclick = async () => {
     showWelcome(prefName);
 
     // ✅ NEW: pass both key + email here
-    if (await hasSubmitted(key, email)) {
-      msg.textContent = "You already submitted. Showing certificates.";
-      // directly show certificates, NO survey
-      showCertificatesForKey(key);
-      return;
-    }
+   // check if already submitted
+	if (await hasSubmitted(key, email)) {
+	  msg.textContent = "You already submitted. Showing certificates.";
+	  setStep("cert"); // ✅ update stepper
+	  showCertificatesForKey(key);
+	  return;
+	}
+
 
     // first time → show survey
     msg.textContent = "Email verified — please complete the survey.";
