@@ -631,7 +631,20 @@
   };
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-  import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, serverTimestamp, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+  import {
+	  getFirestore,
+	  doc,
+	  getDoc,
+	  setDoc,
+	  updateDoc,
+	  arrayUnion,
+	  serverTimestamp,
+	  collection,
+	  getDocs,
+	  query,
+	  where
+	} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
   import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
   const app = initializeApp(firebaseConfig);
@@ -707,31 +720,49 @@
       .replace(/[@.]/g, "_");  // only @ and . → _
   }
 
-  async function hasSubmitted(key) {
-    try {
-      // 1️⃣ Try the NEW key first
-      let snap = await getDoc(doc(db, "rssasurvey", key));
+  /* ---- Utilities ---- */
+function emailToKey(email) {
+  // NEW standard key
+  return email
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_");  // replace @ . - and all other symbols with _
+}
 
-      // 2️⃣ If not found, try legacy key (for old submissions)
-      if (!snap.exists() && currentEmail) {
-        const legacyKey = legacyEmailToKey(currentEmail);
-        if (legacyKey !== key) {
-          const legacySnap = await getDoc(doc(db, "rssasurvey", legacyKey));
-          if (legacySnap.exists()) {
-            snap = legacySnap;
-          }
-        }
-      }
+async function hasSubmitted(key) {
+  try {
+    // 1️⃣ Try by document ID (what we expect normally)
+    let snap = await getDoc(doc(db, "rssasurvey", key));
 
-      if (!snap.exists()) return false;
-
+    if (snap.exists()) {
       const d = snap.data();
       return Array.isArray(d.submissions) && d.submissions.length > 0;
-    } catch (e) {
-      console.error("hasSubmitted error:", e);
-      return false;
     }
+
+    // 2️⃣ Fallback: search by email field (covers any legacy/mismatched keys)
+    if (!currentEmail) return false;
+
+    const qRef = query(
+      collection(db, "rssasurvey"),
+      where("email", "==", currentEmail)
+    );
+    const qSnap = await getDocs(qRef);
+
+    let found = false;
+    qSnap.forEach(docSnap => {
+      const d = docSnap.data();
+      if (Array.isArray(d.submissions) && d.submissions.length > 0) {
+        found = true;
+      }
+    });
+
+    return found;
+  } catch (e) {
+    console.error("hasSubmitted error:", e);
+    return false;
   }
+}
+
 
 
   /* ---- BUTTON: Check ---- */
