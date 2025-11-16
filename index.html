@@ -1,0 +1,933 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>🧑🏻‍⚕️ RSSA Survey → Certificate 🧑🏻‍⚕️</title>
+
+  <style>
+    html, body { height: 100%; margin: 0; }
+    :root{
+      --accent:#0A4D68;
+      --accent-2:#00B894;
+      --ink:#0b1220;
+      --muted:#6b7280;
+      --border:#e6e8ef;
+      --card:#ffffff;
+    }
+
+    body{
+      font-family: Inter, system-ui, Arial, sans-serif;
+      min-height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #c2fff2 0%, transparent 60%),
+        radial-gradient(1200px 600px at 110% 110%, #dbe9ff 0%, transparent 60%),
+        linear-gradient(317deg, rgba(0,6,60,.85) 0%, rgba(0,127,85,.85) 58%),
+        #07111a;
+      background-attachment: fixed;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .logo{
+      height:56px; display:block; margin:0 auto 10px; object-fit:contain;
+    }
+    #welcomeBar b{ font-weight:800 }
+
+    .card{
+      width:100%; max-width:940px;
+      background: color-mix(in oklab, var(--card) 92%, white);
+      border:1px solid color-mix(in oklab, var(--border) 70%, white);
+      border-radius:20px;
+      padding:28px;
+      box-shadow:
+        0 20px 60px rgba(7,17,26,.25),
+        0 6px 18px rgba(7,17,26,.18);
+      backdrop-filter: saturate(130%) blur(10px);
+      max-height: 800px;
+      overflow-y:auto;
+      position: relative;
+    }
+
+    #btnAdmin:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    h1{ margin:0 0 6px; font-weight:800; color:#0a1a3a }
+    h3{ margin:20px 0 8px; font-weight:700; color:#0a1a3a }
+
+    .muted{ color: var(--muted); font-size:13px }
+    .note{
+      display:flex; gap:10px;
+      background:#f6faff; border:1px solid #e7efff; color:#0a1a3a;
+      padding:10px 12px; border-radius:12px; font-size:13px; margin:8px 0 4px;
+    }
+
+    .stepper{ display:flex; gap:10px; margin:14px 0 18px; flex-wrap:wrap; }
+    .step{
+      padding:8px 12px; border-radius:999px;
+      font-weight:600; font-size:12px;
+      border:1px dashed #d7dbe7; background:#fff; color:#64748b;
+    }
+    .step.active{ color:#083344; background:#d9fff2; border-color:#8df2d6; box-shadow:0 6px 14px rgba(0,184,148,.18) inset; }
+    .step.done{ color:#065f46; background:#ecfdf5; border-color:#a7f3d0; }
+
+    .row{ display:flex; gap:12px; flex-wrap:wrap }
+    label{ display:block; margin:10px 0 6px; font-weight:650; font-size:14px }
+
+    input, textarea, select, button{ font-family:inherit }
+    input[type="email"], input[type="text"], textarea, select{
+      width:100%; padding:12px; border-radius:12px;
+      border:1px solid var(--border); background:#fff;
+    }
+    input:focus, textarea:focus, select:focus{
+      outline:none; border-color:#93e6cf;
+      box-shadow: 0 0 0 6px rgba(0,184,148,.12);
+    }
+
+    button{
+      background: linear-gradient(180deg, var(--accent-2), #00a07f);
+      color:#fff; padding:12px 16px; border-radius:12px;
+      font-weight:700; cursor:pointer;
+      box-shadow: 0 10px 24px rgba(0,184,148,.35);
+      border: none;
+    }
+    button.secondary{ background: linear-gradient(180deg, #93a1b6, #7c8aa3); }
+
+    .cert-list{
+      margin-top:18px; display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:14px;
+    }
+    .cert-card{ background:#fff; border:1px solid var(--border); padding:12px; border-radius:14px; text-align:center; }
+    .cert-card img{ max-width:100%; border-radius:10px; }
+
+    .cert-card iframe,
+    .cert-card object {
+      width:100%;
+      height:420px;
+      border:1px solid var(--border);
+      border-radius:10px;
+    }
+    .hidden{ display:none; }
+
+    /* ===== Slide-out Admin Drawer ===== */
+    #adminPanel{
+      position: fixed; top: 0; left: 0; height: 100vh;
+      width: 70vw; max-width: 92vw; background: #ffffff;
+      border-right: 1px solid #e6e8ef; box-shadow: 0 20px 60px rgba(7,17,26,.25);
+      transform: translateX(-105%); transition: transform .32s ease; z-index: 1000;
+      border-radius: 0 16px 16px 0; padding: 18px 16px 24px; overflow-y: auto;
+    }
+    #adminPanel.open{ transform: translateX(0); }
+
+/* Fade/slide animation for charts grid */
+@keyframes fadeSlideIn{ from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform: translateY(0); } }
+.fadeSlideIn{ animation: fadeSlideIn .35s ease both; }
+
+    #adminOverlay{ position: fixed; inset: 0; background: rgba(7,17,26,.45); backdrop-filter: blur(2px); z-index: 900; display: none; }
+    #adminOverlay.show{ display: block; }
+
+    .admin-header{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom: 8px; }
+    .admin-close{ background:#eef2f7; color:#0b1220; border:none; border-radius:10px; padding:6px 10px; font-weight:700; cursor:pointer; }
+
+    .charts-grid{ display:grid; gap:12px; grid-template-columns: repeat(3, 1fr); }
+    .chart-card{ background:#fff; border:1px solid #e6e8ef; border-radius:12px; padding:10px; }
+    .chart-card h4{ margin:0 0 6px; font-size:14px }
+  
+/* ---- Loading Spinner ---- */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 7px solid #ffffff66;
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hidden { display: none !important; }
+
+</style>
+  <script>
+    function toSafeKey(emailOrKey) {
+        // Convert ONLY if the input still contains @ or dots/hyphens
+        return emailOrKey.includes("@") 
+          ? emailOrKey.replace(/[^A-Za-z0-9]+/g, "_")
+          : emailOrKey;
+      }
+
+      // User input
+      let userInput = "mona-1904@hotmail.com";
+      // OR: "mona_1904_hotmail_com"
+
+      let safeKey = toSafeKey(userInput);
+
+      // Now lookup always works:
+      let record = data[safeKey];
+
+      if (record) {
+        console.log("FOUND:", record);
+      } else {
+        console.log("NOT FOUND");
+      }
+
+  </script>
+</head>
+
+<body>
+
+  <!-- LOGO -->
+  <img id="brandLogo" src="https://us-previewenginepublic.nimbuspop.com/image/BACKSTAGE/178532000000013235?cli-msg=eyJtb2R1bGUiOiJFdmVudEltYWdlUmVzb3VyY2UiLCJ0eXBlIjowLCJwb3J0YWxJZCI6Ijg5MjAyODQ0NiIsInN1YlJlc291cmNlSWQiOiI4OTIwMjg0NDYiLCJpZCI6IjE3ODUzMjAwMDAwMDAxMzIzNSJ9" class="logo"/>
+
+  <div class="card">
+
+    <!-- ADMIN BUTTON TOP-LEFT -->
+    <div style="position:absolute; top:18px; right:18px; z-index:20;">
+      <button id="btnAdmin" class="secondary" style="padding:6px 12px; font-size:12px;">👑 Admin</button>
+    </div>
+
+    <h1>Get Your Certificate</h1>
+    <p class="muted">Enter your email to check eligibility and complete the survey.</p>
+
+    <div class="stepper">
+      <div class="step active" id="stepEmail">1 · Email</div>
+      <div class="step" id="stepSurvey">2 · Survey</div>
+      <div class="step" id="stepCert">3 · Certificate</div>
+    </div>
+
+    <div class="note"><strong>⏱ Estimated time:</strong> 2–3 minutes to complete the survey.</div>
+
+    <!-- Welcome -->
+    <div id="welcomeBar" class="note hidden"></div>
+
+    <!-- EMAIL INPUT -->
+    <label>Email</label>
+    <input id="email" type="email" placeholder="you@example.com" />
+
+    <div style="height:8px"></div>
+
+    <div class="row">
+      <button id="btnCheck">Check / Start</button>
+      <button id="btnClear" class="secondary">Clear</button>
+    </div>
+
+    <p id="msg" class="muted" style="color: #960d0d;"></p>
+
+    <!-- SURVEY FORM -->
+    <form id="surveyForm" class="hidden">
+      <hr/>
+      <h3>Section 1: Participant Information</h3>
+      <label>Full name</label>
+      <input id="fullname" type="text" placeholder="Your name" required />
+
+      <!-- ✅ MULTI-SELECT ROLE -->
+      <label>Role (select all that apply)</label>
+      <div id="roleGroup" class="row" style="gap:8px">
+        <label><input type="checkbox" name="roles" value="Attendee"> Attendee</label>
+        <label><input type="checkbox" name="roles" value="Speaker"> Speaker</label>
+        <label><input type="checkbox" name="roles" value="Committee Member"> Committee Member</label>
+        <label><input type="checkbox" name="roles" value="Sponsor / Exhibitor"> Sponsor / Exhibitor</label>
+      </div>
+
+      <h3>Section 2: General Experience</h3>
+
+      <label>Overall satisfaction</label>
+      <select id="overall_satisfaction">
+        <option value="1">⭐ (1 - Poor)</option>
+        <option value="2">⭐⭐ (2)</option>
+        <option value="3">⭐⭐⭐ (3)</option>
+        <option value="4">⭐⭐⭐⭐ (4)</option>
+        <option value="5">⭐⭐⭐⭐⭐ (5 - Excellent)</option>
+      </select>
+
+      <label>Venue & location</label>
+      <select id="venue_rating">
+        <option value="Excellent">Excellent</option>
+        <option value="Good">Good</option>
+        <option value="Fair">Fair</option>
+        <option value="Needs improvement">Needs improvement</option>
+      </select>
+
+      <label>Registration process</label>
+      <select id="registration_process">
+        <option value="Very smooth">Very smooth</option>
+        <option value="Acceptable">Acceptable</option>
+        <option value="Needs improvement">Needs improvement</option>
+      </select>
+
+      <h3>Section 3: Scientific Program</h3>
+
+      <label>Quality of lectures & speakers</label>
+      <select id="lectures_quality">
+        <option>Excellent</option>
+        <option>Good</option>
+        <option>Fair</option>
+        <option>Poor</option>
+      </select>
+
+      <label>Relevance of themes</label>
+      <select id="themes_relevance">
+        <option>Very relevant</option>
+        <option>Somewhat relevant</option>
+        <option>Not relevant</option>
+      </select>
+
+      <label>Session scheduling</label>
+      <select id="schedule_duration">
+        <option>Well balanced</option>
+        <option>Slightly long</option>
+        <option>Too short</option>
+      </select>
+
+      <h3>Section 4: Organization & Logistics</h3>
+
+      <label>Communication before event</label>
+      <select id="communication_rating">
+        <option>1</option><option>2</option><option>3</option>
+        <option>4</option><option>5</option>
+      </select>
+
+      <label>Support during event</label>
+      <select id="event_support_rating">
+        <option>1</option><option>2</option><option>3</option>
+        <option>4</option><option>5</option>
+      </select>
+
+      <label>Accessibility of facilities</label>
+      <select id="accessibility_rating">
+        <option>1</option><option>2</option><option>3</option>
+        <option>4</option><option>5</option>
+      </select>
+
+      <label>What did you like most?</label>
+      <textarea id="like_most" rows="3"></textarea>
+
+      <label>What can be improved?</label>
+      <textarea id="improve_next" rows="3"></textarea>
+
+      <h3>Section 5: Future Suggestions</h3>
+
+      <label>Suggestions for next year</label>
+      <textarea id="future_suggestions" rows="3"></textarea>
+
+      <label>Interested in future RSSA activities?</label>
+      <select id="future_interest">
+        <option>Yes</option><option>No</option><option>Maybe</option>
+      </select>
+
+      <label>Additional comments</label>
+      <textarea id="additional_comments" rows="3"></textarea>
+
+      <div class="row" style="margin-top:15px;">
+        <button type="submit">Submit Survey & See Certificate</button>
+        <button id="btnCancel" type="button" class="secondary">Cancel</button>
+      </div>
+
+      <p id="formMsg" class="muted"></p>
+    </form>
+
+    <div id="resultsArea" class="hidden">
+      <h3>Your Certificates</h3>
+      <div id="certList" class="cert-list"></div>
+    </div>
+
+    <p id="status" class="muted"></p>
+  </div>
+
+  <!-- ===== ADMIN DRAWER (outside card for fixed positioning) ===== -->
+  <div id="adminPanel">
+    <div class="admin-header">
+      <h2 style="margin:0">Admin</h2>
+      <button id="btnCloseAdmin" class="admin-close">Close ✕</button>
+    </div>
+
+    <!-- Auth -->
+    <div id="authBox" class="note" style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+      <div>
+        <div><b>Admin access</b> — Sign in to manage and analyze survey data.</div>
+        <div class="muted small">Domain/role restrictions can be added later.</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <span id="authStatus" class="muted small">Not signed in</span>
+        <button id="btnSignIn" class="secondary btn-inline">Google Sign-in</button>
+        <button id="btnSignOut" class="secondary btn-inline hidden">Sign out</button>
+      </div>
+    </div>
+
+    <!-- Quick actions -->
+    <div class="row" style="margin:12px 0; align-items:flex-end">
+      <div class="col" style="max-width:300px">
+        <label for="adminSearch">Search (name, email, role, comment…)</label>
+        <input id="adminSearch" type="text" placeholder="Type to filter rows…" />
+      </div>
+      <div class="col" style="flex:0 0 auto; display:flex; align-items:flex-end; gap:8px">
+        <button id="btnLoadAdmin" class="btn-inline">Load Submissions</button>
+        <button id="btnExportCSV" class="secondary btn-inline">Export CSV</button>
+      </div>
+    </div>
+
+    <div id="adminMsg" class="muted"></div>
+
+    <!-- Analytics: charts for EVERY question (except name) -->
+    <div id="analytics" class="hidden" style="margin:14px 0">
+      <h3>Analytics</h3>
+      <div id="quickStats" class="note" style="margin:0 0 12px"></div>
+
+      <button id="btnToggleCharts" class="secondary btn-inline" style="margin:0 0 10px 0">Show all charts</button>
+      <div class="charts-grid" id="chartsGrid" style="display:none">
+        <!-- Categorical / rating questions -->
+        <div class="chart-card"><h4>Overall Satisfaction (1–5)</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_overall_satisfaction" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_overall_satisfaction"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Roles (multi)</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_roles" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_roles"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Venue & Location</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_venue_rating" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_venue_rating"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Registration Process</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_registration_process" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_registration_process"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Lectures & Speakers Quality</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_lectures_quality" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_lectures_quality"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Themes Relevance</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_themes_relevance" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_themes_relevance"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Session Scheduling</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_schedule_duration" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_schedule_duration"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Communication (1–5)</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_communication_rating" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_communication_rating"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Support During Event (1–5)</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_event_support_rating" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_event_support_rating"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Accessibility (1–5)</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_accessibility_rating" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_accessibility_rating"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Future Interest</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_future_interest" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_future_interest"></canvas>
+        </div>
+
+        <!-- Text questions (Top terms) -->
+        <div class="chart-card"><h4>Top Terms — “Liked Most”</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_like_most_top" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_like_most_top"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Top Terms — “Improve Next”</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_improve_next_top" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_improve_next_top"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Top Terms — “Future Suggestions”</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_future_suggestions_top" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_future_suggestions_top"></canvas>
+        </div>
+
+        <div class="chart-card"><h4>Top Terms — “Additional Comments”</h4>
+          <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
+            <button class="chartToggle secondary" data-target="chart_additional_comments_top" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
+          </div>
+          <canvas id="chart_additional_comments_top"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div id="adminTableWrap" style="overflow:auto; border:1px solid #e6e8ef; border-radius:12px; margin-top:10px"></div>
+  </div>
+
+  <!-- Overlay -->
+  <div id="adminOverlay"></div>
+
+  <!-- Charts & PDF libs -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+<script type="module">
+
+function showSpinner() {
+  document.getElementById("loadingSpinner").classList.remove("hidden");
+}
+function hideSpinner() {
+  document.getElementById("loadingSpinner").classList.add("hidden");
+}
+
+/* ---- FIREBASE ---- */
+const firebaseConfig = {
+  apiKey: "AIzaSyDBaRLjkb17ahZaSCKkm1O_6lgfVcxyHZw",
+  authDomain: "rssa-84372.firebaseapp.com",
+  projectId: "rssa-84372",
+  storageBucket: "rssa-84372.firebasestorage.app",
+  messagingSenderId: "1010067943809",
+  appId: "1:1010067943809:web:5a6aec27ecd285e54c3880"
+};
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, serverTimestamp, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+const app = initializeApp(firebaseConfig);
+const db  = getFirestore(app);
+const auth = getAuth();
+
+/* ---- ELEMENTS ---- */
+const emailInput = document.getElementById("email");
+const btnCheck   = document.getElementById("btnCheck");
+const btnClear   = document.getElementById("btnClear");
+
+const surveyForm = document.getElementById("surveyForm");
+const fullnameEl = document.getElementById("fullname");
+
+const roleChecks = Array.from(document.querySelectorAll('input[name="roles"]'));
+function getSelectedRoles(){ return roleChecks.filter(c => c.checked).map(c => c.value); }
+
+const welcomeBar = document.getElementById("welcomeBar");
+const resultsArea = document.getElementById("resultsArea");
+const certList    = document.getElementById("certList");
+const msg         = document.getElementById("msg");
+const formMsg     = document.getElementById("formMsg");
+const statusEl    = document.getElementById("status");
+const btnCancel   = document.getElementById("btnCancel");
+
+/* Admin UI refs */
+const btnAdmin    = document.getElementById('btnAdmin');
+const adminPanel  = document.getElementById('adminPanel');
+const adminOverlay= document.getElementById('adminOverlay');
+const btnCloseAdmin = document.getElementById('btnCloseAdmin');
+const btnLoadAdmin= document.getElementById('btnLoadAdmin');
+const btnExportCSV= document.getElementById('btnExportCSV');
+const adminMsg    = document.getElementById('adminMsg');
+const adminTableWrap = document.getElementById('adminTableWrap');
+const adminSearch = document.getElementById('adminSearch');
+const analyticsBox = document.getElementById('analytics');
+const btnSignIn   = document.getElementById('btnSignIn');
+const btnSignOut  = document.getElementById('btnSignOut');
+const authStatus  = document.getElementById('authStatus');
+
+let DATA = null;
+let currentEmailKey = null;
+let currentEmail    = null;
+
+let __ROWS = [];
+let __FILTERED = [];
+let __CHARTS = {};
+let __CHART_DATA = {};
+let __CHART_TYPES = {}; // per-canvas type: 'pie' | 'bar'
+
+/* ---- name helpers ---- */
+function toTitle(s){ return s.split(/[\s._-]+/).filter(Boolean).map(w => w[0].toUpperCase()+w.slice(1)).join(" "); }
+function nameFromEmail(email){ const local = email.split("@")[0]; return toTitle(local.replace(/\d+/g," ").replace(/\./g," ")); }
+function showWelcome(name){ if(!name){ welcomeBar.classList.add("hidden"); return; } welcomeBar.innerHTML = `<b>👋 Welcome,</b> ${name}`; welcomeBar.classList.remove("hidden"); }
+
+/* ---- Load data.json ---- */
+fetch("data.json").then(r=>r.json()).then(j=>DATA=j);
+
+/* ---- Utilities ---- */
+function emailToKey(email){ return email.trim().toLowerCase().replace(/[@.]/g,"_"); }
+async function hasSubmitted(key){ try{ const snap = await getDoc(doc(db,"rssasurvey",key)); if(!snap.exists()) return false; const d = snap.data(); return Array.isArray(d.submissions) && d.submissions.length>0; }catch(e){ return false; } }
+
+/* ---- BUTTON: Check ---- */
+btnCheck.onclick = async () => {
+  msg.textContent = ""; resultsArea.classList.add("hidden"); certList.innerHTML = ""; surveyForm.classList.add("hidden"); formMsg.textContent = "";
+  const email = emailInput.value.trim().toLowerCase();
+  if(!email.includes("@")){ msg.textContent="Enter valid email"; return; }
+  const key = emailToKey(email); currentEmailKey = key; currentEmail = email;
+  if(!DATA || !DATA[key]){ msg.textContent="Email not found in list."; return; }
+  const entry = DATA[key]; const prefName = entry.name || nameFromEmail(email); fullnameEl.value = entry.name || ""; showWelcome(prefName);
+  if(await hasSubmitted(key)){ msg.textContent = "You already submitted. Showing certificates."; showCertificatesForKey(key); return; }
+  msg.textContent = "Email verified — please complete the survey."; surveyForm.classList.remove("hidden");
+  fullnameEl.oninput = () => showWelcome(fullnameEl.value || prefName);
+};
+
+/* ---- BUTTON: Clear ---- */
+btnClear.onclick = () => { emailInput.value=""; msg.textContent=""; welcomeBar.classList.add("hidden"); surveyForm.classList.add("hidden"); resultsArea.classList.add("hidden"); };
+
+/* ---- BUTTON: Cancel ---- */
+btnCancel.onclick = () => { surveyForm.classList.add("hidden"); };
+
+/* ---- SUBMIT SURVEY ---- */
+surveyForm.onsubmit = async (e) => {
+  e.preventDefault();
+  const submission = {
+    id: "resp-"+Math.random().toString(36).slice(2,8),
+    submittedAt: new Date().toISOString(),
+    fullname: fullnameEl.value.trim(),
+    roles: getSelectedRoles(),
+    overall_satisfaction: document.getElementById("overall_satisfaction").value,
+    venue_rating: document.getElementById("venue_rating").value,
+    registration_process: document.getElementById("registration_process").value,
+    lectures_quality: document.getElementById("lectures_quality").value,
+    themes_relevance: document.getElementById("themes_relevance").value,
+    schedule_duration: document.getElementById("schedule_duration").value,
+    communication_rating: document.getElementById("communication_rating").value,
+    event_support_rating: document.getElementById("event_support_rating").value,
+    accessibility_rating: document.getElementById("accessibility_rating").value,
+    like_most: document.getElementById("like_most").value.trim(),
+    improve_next: document.getElementById("improve_next").value.trim(),
+    future_suggestions: document.getElementById("future_suggestions").value.trim(),
+    future_interest: document.getElementById("future_interest").value,
+    additional_comments: document.getElementById("additional_comments").value.trim(),
+  };
+
+  const ref = doc(db,"rssasurvey",currentEmailKey);
+  try{ await updateDoc(ref,{ submissions: arrayUnion(submission), lastSubmitted: serverTimestamp(), email: currentEmail }); }
+  catch(e){ await setDoc(ref,{ email:currentEmail, submissions:[submission], lastSubmitted:serverTimestamp() }); }
+
+  showWelcome(submission.fullname);
+  surveyForm.classList.add("hidden");
+  showCertificatesForKey(currentEmailKey);
+};
+
+/* ---- DISPLAY CERTIFICATES ---- */
+function showCertificatesForKey(key){
+  const entry = DATA[key]; resultsArea.classList.remove("hidden");
+  const urls = [];
+  if(entry.files) urls.push(...entry.files.map(f=>`./certs/${f}`));
+  if(entry.certificateURLs) urls.push(...entry.certificateURLs);
+
+  certList.innerHTML = "";
+  urls.forEach(url=>{
+    const card = document.createElement("div"); card.className="cert-card";
+    const lower = String(url).toLowerCase();
+
+    if (lower.endsWith('.pdf')){
+      // ✅ Inline PDF preview with fallback
+      const obj = document.createElement('object');
+      obj.type = 'application/pdf';
+      obj.data = url;
+      obj.setAttribute('aria-label','PDF preview');
+      obj.style.width = '100%';
+      obj.style.height = '420px';
+
+      const fallback = document.createElement('p');
+      const link = document.createElement('a');
+      link.href = url; link.target = '_blank'; link.textContent = 'Open PDF';
+      fallback.appendChild(document.createTextNode('Your browser cannot preview PDF. '));
+      fallback.appendChild(link);
+      obj.appendChild(fallback);
+
+      card.appendChild(obj);
+    } else {
+      // existing image flow
+      const img = document.createElement("img");
+      img.src = url; img.alt = 'Certificate image';
+      card.appendChild(img);
+    }
+
+    // Open / Download button (works for both)
+    const a = document.createElement("a");
+    a.href = url; a.target = "_blank";
+    a.download = url.split("/").pop();
+    a.textContent = "Open / Download";
+    a.className = "download";
+    card.appendChild(a);
+
+    certList.appendChild(card);
+  });
+}
+
+
+/* ---- ADMIN DRAWER TOGGLE ---- */
+btnAdmin.onclick = () => { adminPanel.classList.add('open'); adminOverlay.classList.add('show'); };
+btnCloseAdmin.onclick = () => { adminPanel.classList.remove('open'); adminOverlay.classList.remove('show'); };
+adminOverlay.onclick = () => { adminPanel.classList.remove('open'); adminOverlay.classList.remove('show'); };
+
+/* ---- AUTH ---- */
+onAuthStateChanged(auth, (user) => {
+  if (user) { authStatus.textContent = `Signed in as ${user.email}`; btnSignIn.classList.add('hidden'); btnSignOut.classList.remove('hidden'); }
+  else { authStatus.textContent = 'Not signed in'; btnSignIn.classList.remove('hidden'); btnSignOut.classList.add('hidden'); }
+});
+btnSignIn?.addEventListener('click', async () => { try { const provider = new GoogleAuthProvider(); await signInWithPopup(auth, provider); } catch (e) { alert('Sign-in failed: ' + (e?.message || e)); } });
+btnSignOut?.addEventListener('click', async () => { try { await signOut(auth); } catch(e){} });
+
+/* ---- ADMIN LOAD + CSV + SEARCH ---- */
+btnLoadAdmin?.addEventListener('click', async () => {
+  adminMsg.textContent = ''; adminTableWrap.innerHTML = '';
+  if (!auth.currentUser) { adminMsg.textContent = 'Please sign in first.'; adminMsg.style.color = '#b91c1c'; return; }
+  adminMsg.textContent = 'Loading submissions...'; adminMsg.style.color = '';
+  try {
+    const colRef = collection(db, 'rssasurvey');
+    const snap = await getDocs(colRef);
+    const rows = [];
+    snap.forEach(docSnap => {
+      const d = docSnap.data() || {}; const subs = Array.isArray(d.submissions) ? d.submissions : []; const latest = subs[subs.length - 1] || {}; const lastTime = d.lastSubmitted?.toDate?.() || null;
+      rows.push({
+        email: d.email || docSnap.id,
+        submissions_count: subs.length,
+        lastSubmittedISO: lastTime ? lastTime.toISOString() : '',
+        fullname: latest.fullname || '',
+        roles: Array.isArray(latest.roles) ? latest.roles.join('; ') : (latest.role || ''),
+        overall_satisfaction: latest.overall_satisfaction || '',
+        venue_rating: latest.venue_rating || '',
+        registration_process: latest.registration_process || '',
+        lectures_quality: latest.lectures_quality || '',
+        themes_relevance: latest.themes_relevance || '',
+        schedule_duration: latest.schedule_duration || '',
+        communication_rating: latest.communication_rating || '',
+        event_support_rating: latest.event_support_rating || '',
+        accessibility_rating: latest.accessibility_rating || '',
+        like_most: latest.like_most || '',
+        improve_next: latest.improve_next || '',
+        future_suggestions: latest.future_suggestions || '',
+        future_interest: latest.future_interest || '',
+        additional_comments: latest.additional_comments || ''
+      });
+    });
+    __ROWS = rows; __FILTERED = rows.slice(); renderAdminTable(__FILTERED); renderAnalytics(__FILTERED); analyticsBox.classList.remove('hidden');
+    adminMsg.textContent = `Loaded ${rows.length} record(s).`; adminMsg.style.color = '#065f46';
+  } catch (e) { console.error('Admin load error:', e); adminMsg.textContent = 'Failed to load. Check console.'; adminMsg.style.color = '#b91c1c'; }
+});
+
+btnExportCSV?.addEventListener('click', () => {
+  const rows = __FILTERED || __ROWS || []; if (!rows.length) { adminMsg.textContent = 'Nothing to export. Load submissions first.'; adminMsg.style.color = '#b91c1c'; return; }
+  const csv = toCSV(rows); const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `rssa_submissions_${new Date().toISOString().slice(0,10)}.csv`; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); adminMsg.textContent = 'CSV exported.'; adminMsg.style.color = '#065f46';
+});
+
+adminSearch?.addEventListener('input', () => {
+  const q = adminSearch.value.toLowerCase();
+  __FILTERED = !q ? __ROWS.slice() : __ROWS.filter(r => Object.values(r).some(v => String(v || '').toLowerCase().includes(q)));
+  renderAdminTable(__FILTERED); renderAnalytics(__FILTERED);
+});
+
+/* ---- RENDER TABLE (+ per-user PDF) ---- */
+function renderAdminTable(rows){
+  if (!rows.length){ adminTableWrap.innerHTML = '<div class="muted">No data.</div>'; return; }
+  const cols = Object.keys(rows[0]); const allCols = [...cols, '_actions'];
+  const ths = allCols.map(c => `<th style="white-space:nowrap; text-align:left; padding:10px; border-bottom:1px solid #e6e8ef">${c === '_actions' ? 'Actions' : c}</th>`).join('');
+  const trs = rows.map((r, idx) => {
+    const tds = cols.map(c => `<td style="padding:10px; border-bottom:1px solid #eef1f6; vertical-align:top">${escapeHTML(r[c] ?? '')}</td>`).join('');
+    const pdfBtn = `<button class="btn-inline secondary" data-pdf="${idx}">PDF</button>`;
+    return `<tr>${tds}<td style="padding:10px; border-bottom:1px solid #eef1f6; vertical-align:top">${pdfBtn}</td></tr>`;
+  }).join('');
+  adminTableWrap.innerHTML = `<table style="width:100%; border-collapse:collapse; font-size:13px"><thead style="position:sticky; top:0; background:#fafbff;"><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
+  adminTableWrap.querySelectorAll('[data-pdf]').forEach(btn => { btn.addEventListener('click', () => { const idx = parseInt(btn.getAttribute('data-pdf'), 10); exportUserPDF(rows[idx]); }); });
+}
+function escapeHTML(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m])); }
+function toCSV(rows){ if (!rows.length) return ''; const headers = Object.keys(rows[0]); const esc = v => { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }; return [ headers.join(','), ...rows.map(r => headers.map(h => esc(r[h])).join(',')) ].join('\n'); }
+
+/* ---- PDF EXPORT ---- */
+async function exportUserPDF(row){
+  const { jsPDF } = window.jspdf; const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+  const title = `RSSA Survey — ${row.fullname || row.email}`; doc.setFontSize(16); doc.text(title, 40, 50); doc.setFontSize(11);
+  const lines = []; Object.keys(row).forEach(k => { if (k === '_actions') return; lines.push(`${k}: ${row[k] ?? ''}`); });
+  const maxWidth = 515; let y = 80; const lineHeight = 16;
+  lines.forEach(text => { const wrapped = doc.splitTextToSize(text, maxWidth); wrapped.forEach(line => { if (y > 780) { doc.addPage(); y = 60; } doc.text(line, 40, y); y += lineHeight; }); });
+  doc.save(`rssa_${(row.fullname||'user').toString().replace(/\s+/g,'_')}.pdf`);
+}
+
+/* ---- ANALYTICS: charts for every question + top terms ---- */
+function renderAnalytics(rows){
+  const countBy = (list) => list.reduce((m,v)=>{ const k=String(v||'').trim(); if(!k) return m; m[k]=(m[k]||0)+1; return m; }, {});
+  const get = f => rows.map(r => r[f]);
+  const rolesFlat = rows.flatMap(r => String(r.roles||'').split(';').map(s=>s.trim()).filter(Boolean));
+
+  const charts = [
+    ['chart_overall_satisfaction', 'Overall Satisfaction', countBy(get('overall_satisfaction'))],
+    ['chart_roles', 'Roles', countBy(rolesFlat)],
+    ['chart_venue_rating', 'Venue & Location', countBy(get('venue_rating'))],
+    ['chart_registration_process', 'Registration', countBy(get('registration_process'))],
+    ['chart_lectures_quality', 'Lectures & Speakers', countBy(get('lectures_quality'))],
+    ['chart_themes_relevance', 'Themes Relevance', countBy(get('themes_relevance'))],
+    ['chart_schedule_duration', 'Session Scheduling', countBy(get('schedule_duration'))],
+    ['chart_communication_rating', 'Communication (1–5)', countBy(get('communication_rating'))],
+    ['chart_event_support_rating', 'Support (1–5)', countBy(get('event_support_rating'))],
+    ['chart_accessibility_rating', 'Accessibility (1–5)', countBy(get('accessibility_rating'))],
+    ['chart_future_interest', 'Future Interest', countBy(get('future_interest'))],
+  ];
+
+  // Text fields -> top terms
+  const textCharts = [
+    ['chart_like_most_top', 'Liked Most — Top Terms', topTerms(rows, 'like_most')],
+    ['chart_improve_next_top', 'Improve Next — Top Terms', topTerms(rows, 'improve_next')],
+    ['chart_future_suggestions_top', 'Future Suggestions — Top Terms', topTerms(rows, 'future_suggestions')],
+    ['chart_additional_comments_top', 'Additional Comments — Top Terms', topTerms(rows, 'additional_comments')],
+  ];
+
+  const n = rows.length; const avgSat = avg(rows.map(r => Number(r.overall_satisfaction||0)));
+  document.getElementById('quickStats').innerHTML = `<b>Records:</b> ${n} &nbsp; • &nbsp; <b>Avg Satisfaction:</b> ${isNaN(avgSat)?'-':avgSat.toFixed(2)} &nbsp; • &nbsp; <b>Unique Roles:</b> ${Object.keys(countBy(rolesFlat)).length}`;
+
+  charts.forEach(([id, label, data]) => setChartData(id, label, data));
+  textCharts.forEach(([id, label, data]) => setChartData(id, label, data));
+
+  // Button to show all charts (lazy render)
+  const btn = document.getElementById('btnToggleCharts');
+  const grid = document.getElementById('chartsGrid');
+
+  function renderAll(){
+    Object.entries(__CHART_DATA).forEach(([cid, info]) => {
+      drawOrUpdateChart(cid, info.label, info.dataObj);
+    });
+  }
+
+  if (btn && !btn.__bound) {
+    btn.__bound = true;
+    btn.addEventListener('click', () => {
+      const showing = grid.style.display !== 'none';
+      if (showing) {
+        grid.style.display = 'none';
+        btn.textContent = 'Show all charts';
+      } else {
+        grid.style.display = 'grid';
+        // add animation class to each card
+        grid.querySelectorAll('.chart-card').forEach((el,i)=>{
+          el.classList.remove('fadeSlideIn');
+          setTimeout(()=>el.classList.add('fadeSlideIn'), i*20);
+        });
+        renderAll();
+        btn.textContent = 'Hide charts';
+      }
+    });
+  }
+
+  // If already visible (after first click), update immediately on filters/search
+  if (grid && grid.style.display !== 'none') { renderAll(); }
+
+  // Delegate: per-chart type toggle
+  if (!grid.__typeBound) {
+    grid.__typeBound = true;
+    grid.addEventListener('click', (e)=>{
+      const btn = e.target.closest('.chartToggle');
+      if (!btn) return;
+      const id = btn.getAttribute('data-target');
+      const current = (__CHART_TYPES[id] || 'pie');
+      const next = current === 'pie' ? 'bar' : 'pie';
+      __CHART_TYPES[id] = next;
+      btn.textContent = next === 'pie' ? 'Switch to Bar' : 'Switch to Pie';
+      const info = __CHART_DATA[id];
+      if (info) {
+        destroyChart(id);
+        drawOrUpdateChart(id, info.label, info.dataObj);
+      }
+    });
+  }
+
+}
+
+function avg(nums){ const list = nums.filter(x => !isNaN(x) && x>0); return !list.length ? NaN : list.reduce((a,b)=>a+b,0)/list.length; }
+
+function setChartData(id, label, dataObj){
+  __CHART_DATA[id] = { label, dataObj };
+}
+
+function destroyChart(id){
+  const c = window.__CHARTS?.[id];
+  if (c) { try { c.destroy(); } catch(_){} delete window.__CHARTS[id]; }
+}
+
+function drawOrUpdateChart(canvasId, label, dataObj){
+  const ctx = document.getElementById(canvasId); if (!ctx) return;
+  const labels = Object.keys(dataObj);
+  const values = Object.values(dataObj);
+  const type = __CHART_TYPES[canvasId] || 'pie';
+
+  if (!window.__CHARTS) window.__CHARTS = {};
+
+  // If a chart exists but type changed, rebuild it
+  if (window.__CHARTS[canvasId]){
+    const existing = window.__CHARTS[canvasId];
+    if (existing.config.type !== type) {
+      destroyChart(canvasId);
+    }
+  }
+
+  if (!window.__CHARTS[canvasId]){
+    window.__CHARTS[canvasId] = new Chart(ctx, {
+      type,
+      data: { labels, datasets: [{ label, data: values }] },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } },
+        scales: type === 'bar' ? { y: { beginAtZero: true, ticks: { precision: 0 } } } : {}
+      }
+    });
+  } else {
+    const c = window.__CHARTS[canvasId];
+    c.data.labels = labels;
+    c.data.datasets[0].data = values;
+    c.update();
+  }
+}
+
+const STOPWORDS = new Set(['the','a','an','and','or','to','of','for','in','on','at','is','are','was','were','be','been','it','that','this','with','as','by','from','we','you','your','our','their','they','i','me','my','he','she','his','her','them','us','very','so','too','event','conference','session','sessions','talk','talks','lecture','lectures','speaker','speakers','topic','topics','year','next','time','day','days']);
+function topTerms(rows, field, topN=12){
+  const counts = {}; rows.forEach(r => { const txt = String(r[field] || '').toLowerCase(); if (!txt) return; txt.replace(/[\p{P}\p{S}]/gu,' ').split(/\s+/).map(w => w.trim()).filter(w => w && !STOPWORDS.has(w) && w.length > 2).forEach(w => { counts[w] = (counts[w]||0)+1; }); });
+  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0, topN); return Object.fromEntries(sorted);
+}
+</script>
+
+<div id="loadingSpinner" class="spinner-overlay hidden">
+  <div class="spinner"></div>
+</div>
+
+</body>
+</html>

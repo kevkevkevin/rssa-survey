@@ -1,0 +1,11 @@
+const ADMIN_KEY = "RSSA-ACCESS-2025";
+
+/* ---- FIREBASE ---- */
+const firebaseConfig = {
+  apiKey: "AIzaSyDBaRLjkb17ahZaSCKkm1O_6lgfVcxyHZw",
+  authDomain: "rssa-84372.firebaseapp.com",
+  projectId: "rssa-84372",
+  storageBucket: "rssa-84372.firebasestorage.app",
+  messagingSenderId: "1010067943809",
+  appId: "1:1010067943809:web:5a6aec27ecd285e54c3880"
+};
