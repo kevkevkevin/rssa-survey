@@ -165,30 +165,6 @@
 .hidden { display: none !important; }
 
 </style>
-  <script>
-    function toSafeKey(emailOrKey) {
-        // Convert ONLY if the input still contains @ or dots/hyphens
-        return emailOrKey.includes("@") 
-          ? emailOrKey.replace(/[^A-Za-z0-9]+/g, "_")
-          : emailOrKey;
-      }
-
-      // User input
-      let userInput = "mona-1904@hotmail.com";
-      // OR: "mona_1904_hotmail_com"
-
-      let safeKey = toSafeKey(userInput);
-
-      // Now lookup always works:
-      let record = data[safeKey];
-
-      if (record) {
-        console.log("FOUND:", record);
-      } else {
-        console.log("NOT FOUND");
-      }
-
-  </script>
 </head>
 
 <body>
@@ -593,8 +569,23 @@ function showWelcome(name){ if(!name){ welcomeBar.classList.add("hidden"); retur
 fetch("data.json").then(r=>r.json()).then(j=>DATA=j);
 
 /* ---- Utilities ---- */
-function emailToKey(email){ return email.trim().toLowerCase().replace(/[@.]/g,"_"); }
-async function hasSubmitted(key){ try{ const snap = await getDoc(doc(db,"rssasurvey",key)); if(!snap.exists()) return false; const d = snap.data(); return Array.isArray(d.submissions) && d.submissions.length>0; }catch(e){ return false; } }
+function emailToKey(email) {
+  return email
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_");  // replace @ . - and all other symbols with _
+}
+
+async function hasSubmitted(key){
+  try{
+    const snap = await getDoc(doc(db,"rssasurvey",key));
+    if(!snap.exists()) return false;
+    const d = snap.data();
+    return Array.isArray(d.submissions) && d.submissions.length>0;
+  }catch(e){
+    return false;
+  }
+}
 
 /* ---- BUTTON: Check ---- */
 btnCheck.onclick = async () => {
