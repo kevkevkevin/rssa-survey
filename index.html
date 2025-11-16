@@ -631,19 +631,8 @@
   };
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-  import {
-	  getFirestore,
-	  doc,
-	  getDoc,
-	  setDoc,
-	  updateDoc,
-	  arrayUnion,
-	  serverTimestamp,
-	  collection,
-	  getDocs,
-	  query,
-	  where
-	} from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+  import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, serverTimestamp, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+
 
   import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
@@ -703,69 +692,42 @@
   /* ---- Load data.json ---- */
   fetch("data.json").then(r=>r.json()).then(j=>DATA=j);
 
-    /* ---- Utilities ---- */
-  function emailToKey(email) {
-    // NEW standard key (what DATA.json & new code uses)
-    return email
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "_");  // replace @ . - and all other symbols with _
-  }
-
-  // Legacy key (old logic you used before we changed it)
-  function legacyEmailToKey(email) {
-    return email
-      .trim()
-      .toLowerCase()
-      .replace(/[@.]/g, "_");  // only @ and . → _
-  }
-
   /* ---- Utilities ---- */
-function emailToKey(email) {
-  // NEW standard key
-  return email
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_");  // replace @ . - and all other symbols with _
-}
-
-async function hasSubmitted(key) {
-  try {
-    // 1️⃣ Try by document ID (what we expect normally)
-    let snap = await getDoc(doc(db, "rssasurvey", key));
-
-    if (snap.exists()) {
-      const d = snap.data();
-      return Array.isArray(d.submissions) && d.submissions.length > 0;
-    }
-
-    // 2️⃣ Fallback: search by email field (covers any legacy/mismatched keys)
-    if (!currentEmail) return false;
-
-    const qRef = query(
-      collection(db, "rssasurvey"),
-      where("email", "==", currentEmail)
-    );
-    const qSnap = await getDocs(qRef);
-
-    let found = false;
-    qSnap.forEach(docSnap => {
-      const d = docSnap.data();
-      if (Array.isArray(d.submissions) && d.submissions.length > 0) {
-        found = true;
-      }
-    });
-
-    return found;
-  } catch (e) {
-    console.error("hasSubmitted error:", e);
-    return false;
+  function emailToKey(email) {
+    // This matches your JSON + Firestore doc IDs:
+    // e.g. "a.abd88@hotmail.com" -> "a_abd88_hotmail_com"
+    return email
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_");
   }
-}
+
+  async function hasSubmitted(key) {
+    try {
+      const ref = doc(db, "rssasurvey", key);
+      const snap = await getDoc(ref);
+
+      if (!snap.exists()) {
+        console.log("hasSubmitted:", key, "=> no doc");
+        return false;
+      }
+
+      const d = snap.data() || {};
+      const submitted =
+        Array.isArray(d.submissions) && d.submissions.length > 0;
+
+      console.log("hasSubmitted:", key, "=>", submitted);
+      return submitted;
+    } catch (e) {
+      console.error("hasSubmitted error:", e);
+      return false;
+    }
+  }
 
 
 
-  /* ---- BUTTON: Check ---- */
+
+ /* ---- BUTTON: Check ---- */
 btnCheck.onclick = async () => {
   // reset UI first
   msg.textContent = "";
@@ -801,7 +763,7 @@ btnCheck.onclick = async () => {
     // check if already submitted
     if (await hasSubmitted(key)) {
       msg.textContent = "You already submitted. Showing certificates.";
-      showCertificatesForKey(key);  // (certs will show after this)
+      showCertificatesForKey(key);
       return;
     }
 
@@ -818,6 +780,7 @@ btnCheck.onclick = async () => {
     hideSpinner();
   }
 };
+
 
 
   /* ---- BUTTON: Clear ---- */
