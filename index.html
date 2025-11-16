@@ -690,24 +690,49 @@
   /* ---- Load data.json ---- */
   fetch("data.json").then(r=>r.json()).then(j=>DATA=j);
 
-  /* ---- Utilities ---- */
+    /* ---- Utilities ---- */
   function emailToKey(email) {
+    // NEW standard key (what DATA.json & new code uses)
     return email
       .trim()
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "_");  // replace @ . - and all other symbols with _
   }
 
-  async function hasSubmitted(key){
-    try{
-      const snap = await getDoc(doc(db,"rssasurvey",key));
-      if(!snap.exists()) return false;
+  // Legacy key (old logic you used before we changed it)
+  function legacyEmailToKey(email) {
+    return email
+      .trim()
+      .toLowerCase()
+      .replace(/[@.]/g, "_");  // only @ and . → _
+  }
+
+  async function hasSubmitted(key) {
+    try {
+      // 1️⃣ Try the NEW key first
+      let snap = await getDoc(doc(db, "rssasurvey", key));
+
+      // 2️⃣ If not found, try legacy key (for old submissions)
+      if (!snap.exists() && currentEmail) {
+        const legacyKey = legacyEmailToKey(currentEmail);
+        if (legacyKey !== key) {
+          const legacySnap = await getDoc(doc(db, "rssasurvey", legacyKey));
+          if (legacySnap.exists()) {
+            snap = legacySnap;
+          }
+        }
+      }
+
+      if (!snap.exists()) return false;
+
       const d = snap.data();
-      return Array.isArray(d.submissions) && d.submissions.length>0;
-    }catch(e){
+      return Array.isArray(d.submissions) && d.submissions.length > 0;
+    } catch (e) {
+      console.error("hasSubmitted error:", e);
       return false;
     }
   }
+
 
   /* ---- BUTTON: Check ---- */
 btnCheck.onclick = async () => {
