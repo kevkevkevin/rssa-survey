@@ -674,6 +674,34 @@
   const btnSignOut  = document.getElementById('btnSignOut');
   const authStatus  = document.getElementById('authStatus');
 
+	// 👇 PASTE THE NEW CODE HERE 👇
+  /* ---- Stepper UI ---- */
+  const steps = {
+    email: document.getElementById("stepEmail"),
+    survey: document.getElementById("stepSurvey"),
+    cert: document.getElementById("stepCert")
+  };
+
+  function setStep(currentStep) {
+    // Remove all classes first
+    steps.email.classList.remove("active", "done");
+    steps.survey.classList.remove("active", "done");
+    steps.cert.classList.remove("active", "done");
+
+    if (currentStep === "email") {
+      steps.email.classList.add("active");
+    } else if (currentStep === "survey") {
+      steps.email.classList.add("done");
+      steps.survey.classList.add("active");
+    } else if (currentStep === "cert") {
+      steps.email.classList.add("done");
+      steps.survey.classList.add("done");
+      steps.cert.classList.add("active");
+    }
+  }
+  // 👆 END OF NEW CODE 👆
+
+	  
   let DATA = null;
   let currentEmailKey = null;
   let currentEmail    = null;
