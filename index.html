@@ -131,7 +131,7 @@
       gap:14px;
     }
     .cert-card{ background:#fff; border:1px solid var(--border); padding:12px; border-radius:14px; text-align:center; }
-    .cert-card img{ max-width:100%; border-radius:10px; }
+    .cert-card img{ max-width:100%; border-radius:10px; margin-bottom: 12px; }
 
     .cert-card iframe,
     .cert-card object {
@@ -140,6 +140,16 @@
       border:1px solid var(--border);
       border-radius:10px;
     }
+	  a.download {
+	    background: #00b28f;
+	    color: #fff;
+	    font-family: Inter, system-ui, Arial, sans-serif;
+	    text-decoration: none;
+	    padding: 8px 25px;
+	    border-radius: 9px;
+	    font-size: 13px;
+	    /* margin-top: 15px; */
+	}
     .hidden{ display:none; }
 
     /* ===== Slide-out Admin Drawer ===== */
@@ -996,7 +1006,7 @@ btnCheck.onclick = async () => {
       a.href = url;
       a.target = "_blank";
       a.download = url.split("/").pop();
-      a.textContent = "Open / Download";
+      a.textContent = "Open/Download 🔗";
       a.className = "download";
       card.appendChild(a);
 
