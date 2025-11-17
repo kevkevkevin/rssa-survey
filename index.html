@@ -280,6 +280,7 @@
   </style>
 </head>
 
+
 <body>
 
   <!-- LOGO -->
@@ -349,6 +350,7 @@
 
       <label>Venue & location</label>
       <select id="venue_rating">
+        <option value="">-- Select --</option>
         <option value="Excellent">Excellent</option>
         <option value="Good">Good</option>
         <option value="Fair">Fair</option>
@@ -357,6 +359,7 @@
 
       <label>Registration process</label>
       <select id="registration_process">
+        <option value="">-- Select --</option>
         <option value="Very smooth">Very smooth</option>
         <option value="Acceptable">Acceptable</option>
         <option value="Needs improvement">Needs improvement</option>
@@ -366,6 +369,7 @@
 
       <label>Quality of lectures & speakers</label>
       <select id="lectures_quality">
+        <option value="">-- Select --</option>
         <option>Excellent</option>
         <option>Good</option>
         <option>Fair</option>
@@ -374,6 +378,7 @@
 
       <label>Relevance of theme</label>
       <select id="themes_relevance">
+        <option value="">-- Select --</option>
         <option>Very relevant</option>
         <option>Somewhat relevant</option>
         <option>Not relevant</option>
@@ -381,6 +386,7 @@
 
       <label>Session scheduling</label>
       <select id="schedule_duration">
+        <option value="">-- Select --</option>
         <option>Well balanced</option>
         <option>Slightly long</option>
         <option>Too short</option>
@@ -517,7 +523,7 @@
 
       <label>Rate the conference’s effectiveness in providing opportunities to meet radiology vendors and learn about their services and equipment</label>
       <select id="vendors_rating">
-        <option value="0">0 </option>
+        <option value="0">0</option>
         <option value="1">1 ⭐</option>
         <option value="2">2 ⭐⭐</option>
         <option value="3">3 ⭐⭐⭐</option>
@@ -534,9 +540,9 @@
       -->
 
       <h3>Future Suggestions</h3>
-<!-- 
-      <label>Suggestions for next year</label>
-      <textarea id="future_suggestions" rows="3"></textarea> -->
+
+      <label>Where would you like the next RSSA Conference to be held?</label>
+      <textarea id="future_suggestions" rows="2"></textarea>
 
       <!-- NEW: important change / theme / speakers -->
       <label>THE MOST IMPORTANT CHANGE YOU REQUEST FOR NEXT RSSA CONFERENCE IS</label>
@@ -546,7 +552,7 @@
       <textarea id="suggested_theme" rows="3"></textarea>
 
       <label>SPEAKERS YOU SUGGEST THE RSSA INVITES IN FUTURE CONFERENCES</label>
-      <input id="suggested_speakers" type="text" placeholder="Enter speaker names (1 line only)" />
+      <input id="suggested_speakers" type="text" placeholder="Enter speaker names" />
 
       <!--
       <label>Interested in future RSSA activities?</label>
@@ -1546,3 +1552,4 @@
 
 </body>
 </html>
+
