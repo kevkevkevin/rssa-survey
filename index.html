@@ -3,6 +3,31 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="canonical" href="https://rssa.zohobackstage.com/RSSA">
+  <link rel="alternate" hreflang="en" href="https://rssa.zohobackstage.com/RSSA#/?lang=en">
+  <meta name="keywords" content=",RSSA,16th&amp;#x20;Annual&amp;#x20;RSSA&amp;#x20;Conference&amp;#x20;&amp;amp;amp&amp;#x3b;&amp;#x20;&amp;#x20;24th&amp;#x20;KFSHRC&amp;#x20;Radiation&amp;#x20;Medicine&amp;#x20;Scientific&amp;#x20;Activity&amp;amp;&amp;#x23;xfeff&amp;#x3b;,&amp;#x20;Ethics&amp;#x20;in&amp;#x20;AI&amp;#x20;Panel&amp;#x20;discussion,Pediatric&amp;#x20;Abdominal&amp;#x20;Emergencies,Comprehensive&amp;#x20;Liver&amp;#x20;Biomarkers&amp;#x20;Workshop&amp;#x20;&amp;#x28;Fat,&amp;#x20;Iron,&amp;#x20;and&amp;#x20;Fibrosis&amp;#x20;with&amp;#x20;MRI&amp;#x20;&amp;amp;&amp;#x20;US&amp;#x29;,rssa,Ultrasound&amp;#x20;Guided&amp;#x20;Lumber&amp;#x20;Puncture,Master&amp;rsquo;s&amp;#x20;Students&amp;#x20;Scientific&amp;#x20;Session,radiology"/>
+
+  <meta name="twitter:title" content="16th Annual RSSA Conference &amp;  24th KFSHRC Radiation Medicine Scientific Activity&#xfeff; - "/>
+  <meta name="twitter:image" content="https://rssa.zohobackstage.com/thumbnail/RSSA?_=1762803344196"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:description" content="Radiology&#x20;Beyond&#x20;Cancer&#x20;and&#x20;Tertiary&#x20;Care&#x3a;&#x20;Expanding&#x20;Horizons&#x20;-&#x20;16th&#x20;Annual&#x20;RSSA&#x20;Conference&#x20;&amp;&#x20;&#x20;24th&#x20;KFSHRC&#x20;Radiation&#x20;Medicine&#x20;Scientific&#x20;Act"/>
+  <meta name="twitter:site" content="@rssafeed"/>
+  <meta name="twitter:creator" content="@rssafeed"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://rssa.zohobackstage.com/RSSA"/>
+  <meta property="og:title" content="16th Annual RSSA Conference &amp;  24th KFSHRC Radiation Medicine Scientific Activity&#xfeff; - "/>
+  <meta property="og:description" content="Radiology&#x20;Beyond&#x20;Cancer&#x20;and&#x20;Tertiary&#x20;Care&#x3a;&#x20;Expanding&#x20;Horizons&#x20;-&#x20;16th&#x20;Annual&#x20;RSSA&#x20;Conference&#x20;&amp;&#x20;&#x20;24th&#x20;KFSHRC&#x20;Radiation&#x20;Medicine&#x20;Scientific&#x20;Act"/>
+  <meta name="image" property="og:image" content="https://rssa.zohobackstage.com/thumbnail/RSSA?_=1762803344196"/>
+  <meta property="og:image:width" content="1440"/>
+  <meta property="og:image:height" content="900"/>
+  <meta property="og:image:type" content="image/png"/>
+
+  <link rel="shortcut icon" type="image/x-icon" href="https://rssa.zohobackstage.com/public/portals/892028446/siteResources/178532000000013721"/>
+  <link rel="icon" href="https://rssa.zohobackstage.com/public/portals/892028446/siteResources/178532000000013721"/>
+
+  <link rel="apple-touch-icon" href="https://rssa.zohobackstage.com/public/portals/892028446/siteResources/178532000000013721">
+  <link rel="apple-touch-startup-image" href="https://rssa.zohobackstage.com/public/portals/892028446/siteResources/178532000000013721">
   <title>🧑🏻‍⚕️ RSSA Survey → Certificate 🧑🏻‍⚕️</title>
 
   <style>
@@ -100,7 +125,7 @@
       gap:14px;
     }
     .cert-card{ background:#fff; border:1px solid var(--border); padding:12px; border-radius:14px; text-align:center; }
-    .cert-card img{ max-width:100%; border-radius:10px; }
+    .cert-card img{ max-width:100%; border-radius:10px; margin-bottom: 12px; }
 
     .cert-card iframe,
     .cert-card object {
@@ -108,6 +133,15 @@
       height:420px;
       border:1px solid var(--border);
       border-radius:10px;
+    }
+    a.download {
+      background: #00b28f;
+      color: #fff;
+      font-family: Inter, system-ui, Arial, sans-serif;
+      text-decoration: none;
+      padding: 8px 25px;
+      border-radius: 9px;
+      font-size: 13px;
     }
     .hidden{ display:none; }
 
@@ -121,9 +155,9 @@
     }
     #adminPanel.open{ transform: translateX(0); }
 
-/* Fade/slide animation for charts grid */
-@keyframes fadeSlideIn{ from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform: translateY(0); } }
-.fadeSlideIn{ animation: fadeSlideIn .35s ease both; }
+    /* Fade/slide animation for charts grid */
+    @keyframes fadeSlideIn{ from{ opacity:0; transform: translateY(8px); } to{ opacity:1; transform: translateY(0); } }
+    .fadeSlideIn{ animation: fadeSlideIn .35s ease both; }
 
     #adminOverlay{ position: fixed; inset: 0; background: rgba(7,17,26,.45); backdrop-filter: blur(2px); z-index: 900; display: none; }
     #adminOverlay.show{ display: block; }
@@ -134,37 +168,85 @@
     .charts-grid{ display:grid; gap:12px; grid-template-columns: repeat(3, 1fr); }
     .chart-card{ background:#fff; border:1px solid #e6e8ef; border-radius:12px; padding:10px; }
     .chart-card h4{ margin:0 0 6px; font-size:14px }
-  
-/* ---- Loading Spinner ---- */
-.spinner-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
 
-.spinner {
-  width: 60px;
-  height: 60px;
-  border: 7px solid #ffffff66;
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
+    /* ---- Loading Spinner ---- */
+    .spinner-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
 
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
+    .spinner {
+      width: 60px;
+      height: 60px;
+      border: 7px solid #ffffff66;
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
 
-.hidden { display: none !important; }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
 
-</style>
+    .hidden { display: none !important; }
+
+    /* ---- Certificate Preview Modal ---- */
+    .preview-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10000;
+    }
+    .preview-overlay.hidden {
+      display: none !important;
+    }
+    .preview-content {
+      background:#ffffff;
+      padding:16px;
+      border-radius:16px;
+      max-width:90vw;
+      max-height:90vh;
+      box-shadow:0 20px 60px rgba(0,0,0,.5);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .preview-body {
+      flex:1;
+      overflow:auto;
+    }
+    .preview-body img,
+    .preview-body object {
+      max-width:100%;
+      max-height:80vh;
+      border-radius:12px;
+    }
+    .preview-close {
+      align-self:flex-end;
+      background:#111827;
+      color:#fff;
+      border:none;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12px;
+      cursor:pointer;
+    }
+    .btn-inline {
+      padding:6px 10px;
+      font-size:12px;
+    }
+  </style>
 </head>
 
 <body>
@@ -209,7 +291,7 @@
     <!-- SURVEY FORM -->
     <form id="surveyForm" class="hidden">
       <hr/>
-      <h3>Section 1: Participant Information</h3>
+      <h3>Participant Information</h3>
       <label>Full name</label>
       <input id="fullname" type="text" placeholder="Your name" required />
 
@@ -222,10 +304,11 @@
         <label><input type="checkbox" name="roles" value="Sponsor / Exhibitor"> Sponsor / Exhibitor</label>
       </div>
 
-      <h3>Section 2: General Experience</h3>
+      <h3>General Experience</h3>
 
       <label>Overall satisfaction</label>
       <select id="overall_satisfaction">
+        <option value="0">0</option>
         <option value="1">⭐ (1 - Poor)</option>
         <option value="2">⭐⭐ (2)</option>
         <option value="3">⭐⭐⭐ (3)</option>
@@ -235,6 +318,7 @@
 
       <label>Venue & location</label>
       <select id="venue_rating">
+        <option value="">-- Select --</option>
         <option value="Excellent">Excellent</option>
         <option value="Good">Good</option>
         <option value="Fair">Fair</option>
@@ -243,23 +327,26 @@
 
       <label>Registration process</label>
       <select id="registration_process">
+        <option value="">-- Select --</option>
         <option value="Very smooth">Very smooth</option>
         <option value="Acceptable">Acceptable</option>
         <option value="Needs improvement">Needs improvement</option>
       </select>
 
-      <h3>Section 3: Scientific Program</h3>
+      <h3>Scientific Program</h3>
 
       <label>Quality of lectures & speakers</label>
       <select id="lectures_quality">
+        <option value="">-- Select --</option>
         <option>Excellent</option>
         <option>Good</option>
         <option>Fair</option>
         <option>Poor</option>
       </select>
 
-      <label>Relevance of themes</label>
+      <label>Relevance of theme</label>
       <select id="themes_relevance">
+        <option value="">-- Select --</option>
         <option>Very relevant</option>
         <option>Somewhat relevant</option>
         <option>Not relevant</option>
@@ -267,46 +354,180 @@
 
       <label>Session scheduling</label>
       <select id="schedule_duration">
+        <option value="">-- Select --</option>
         <option>Well balanced</option>
         <option>Slightly long</option>
         <option>Too short</option>
       </select>
 
-      <h3>Section 4: Organization & Logistics</h3>
+      <!-- ★★★★★ NEW SECTION: TRACK FEEDBACK ★★★★★ -->
+      <h3>Track Feedback</h3>
+
+      <label>What is your favorite track?</label>
+      <select id="favorite_track" required>
+        <option value="">-- Select Track --</option>
+        <option>Breast Imaging</option>
+        <option>Innovations</option>
+        <option>Abdominal Imaging</option>
+        <option>Neuroradiology</option>
+        <option>Medical Physics</option>
+        <option>Radiation Oncology</option>
+        <option>MSK</option>
+        <option>Thoracic Imaging</option>
+        <option>Interventional Radiology</option>
+        <option>Nuclear Medicine</option>
+        <option>Cardiothoracic Imaging</option>
+        <option>Pediatric Imaging</option>
+        <option>Radiology Technology</option>
+        <option>Young Radiologists</option>
+        <option>Green Radiology Track</option>
+        <option>Radiation Safety</option>
+        <option>Others</option>
+      </select>
+
+      <!--
+      <label>Rate your favorite track (1–5)</label>
+      <select id="favorite_track_rating">
+        <option>1 ⭐</option>
+        <option>2 ⭐⭐</option>
+        <option>3 ⭐⭐⭐</option>
+        <option>4 ⭐⭐⭐⭐</option>
+        <option>5 ⭐⭐⭐⭐⭐</option>
+      </select>
+      -->
+
+      <label>Any comments/recommendations on your favorite track? (Optional)</label>
+      <textarea id="favorite_track_comment" rows="2"></textarea>
+
+      <!-- ★★★★★ NEW SECTION: WORKSHOP FEEDBACK ★★★★★ -->
+      <h3>Workshop Feedback</h3>
+
+      <label>What is your favorite workshop?</label>
+      <select id="favorite_workshop" required>
+        <option value="">-- Select Workshop --</option>
+        <option>Ultrasound Made Easy: How to Scan with Confidence</option>
+        <option>CO2 Contrast Adminstration WorkShop</option>
+        <option>Mastering Carotid Doppler Ultrasound. Interpretation, Pitfalls, and Clinical Correlation</option>
+        <option>Diagnostics in the Desert: Back to the Future in Radiology</option>
+        <option>Say It Right: A Practical Workshop on Radiology Reporting</option>
+        <option>Ultrasound-Guided skills in Interventional Radiology & Basic IR Material</option>
+        <option>Pediatric Abdominal Emergencies</option>
+        <option>Next Era in Magnetic Resonance Imaging with Deep Resolve</option>
+        <option>Next-Gen Imaging: CT Photon Counting for Enhanced Cardiology Care</option>
+        <option>Pre-Intra-Post Angio procedure patient care: practical tips</option>
+        <option>From Shear Waves to Clinical Impact: The Modern Role of Elastography in Ultrasound</option>
+        <option>Hands-on Cardiac MRI</option>
+        <option>How to Validate AI model</option>
+        <option>Ultrasound Guided Lumber Puncture</option>
+        <option>Hands-on Difficult IV access DIVA workshop</option>
+        <option>Nuclear Medicine Physics Quality Control</option>
+        <option>AI VS Radiologists</option>
+        <option>MRI Physics Quality Control</option>
+        <option>Beyond the Basics: Special X-ray Views Workshop: Precision in Positioning and Interpretation</option>
+        <option>Angio/Fluoro Physics Quality Control</option>
+        <option>Ethics in AI Panel discussion</option>
+        <option>Hands-on Advanced MRI Brain Imaging</option>
+        <option>Mammo Physics Quality Control</option>
+        <option>Xray Physics Quality Control</option>
+        <option>CT Physics Quality Control</option>
+        <option>Master’s Students Scientific Session</option>
+        <option>MRI Guided Breast Biopsy</option>
+        <option>US Physics Quality Control</option>
+        <option>Advanced CT Post processing</option>
+        <option>Mammography Essentials: Positioning, Quality, and New Advances.</option>
+        <option>Radiation Safety and Licensing Requirements by the NRRC</option>
+        <option>Contrast Enhanced Mammography reading workshop</option>
+        <option>Comprehensive Liver Biomarkers Workshop (Fat, Iron, and Fibrosis with MRI & US)</option>
+        <option>Introduction to Biostatistics</option>
+        <option>Artificial Intelligence in US General Imaging</option>
+      </select>
+
+      <!--
+      <label>Rate your favorite workshop (1–5)</label>
+      <select id="favorite_workshop_rating">
+        <option>1 ⭐</option>
+        <option>2 ⭐⭐</option>
+        <option>3 ⭐⭐⭐</option>
+        <option>4 ⭐⭐⭐⭐</option>
+        <option>5 ⭐⭐⭐⭐⭐</option>
+      </select>
+      -->
+
+      <label>Any comments/recommendation on your favorite workshop? (Optional)</label>
+      <textarea id="favorite_workshop_comment" rows="2"></textarea>
+
+      <h3>Organization & Logistics</h3>
 
       <label>Communication before event</label>
       <select id="communication_rating">
-        <option>1</option><option>2</option><option>3</option>
-        <option>4</option><option>5</option>
+        <option value="0">0</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
+        <option>4 ⭐⭐⭐⭐</option><option>5 ⭐⭐⭐⭐⭐</option>
       </select>
 
       <label>Support during event</label>
       <select id="event_support_rating">
-        <option>1</option><option>2</option><option>3</option>
-        <option>4</option><option>5</option>
+        <option value="0">0</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
+        <option>4 ⭐⭐⭐⭐</option><option>5 ⭐⭐⭐⭐⭐</option>
       </select>
 
       <label>Accessibility of facilities</label>
       <select id="accessibility_rating">
-        <option>1</option><option>2</option><option>3</option>
-        <option>4</option><option>5</option>
+        <option value="0">0</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
+        <option>4 ⭐⭐⭐⭐</option><option>5 ⭐⭐⭐⭐⭐</option>
       </select>
 
+      <!-- NEW: Networking & Exhibitors -->
+      <h3>Networking & Exhibitors</h3>
+
+      <label>Rate the conference’s effectiveness in providing opportunities to build, promote, and enhance your social network</label>
+      <select id="networking_rating">
+        <option value="0">0</option>
+        <option value="1">1 ⭐</option>
+        <option value="2">2 ⭐⭐</option>
+        <option value="3">3 ⭐⭐⭐</option>
+        <option value="4">4 ⭐⭐⭐⭐</option>
+        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+      </select>
+
+      <label>Rate the conference’s effectiveness in providing opportunities to meet radiology vendors and learn about their services and equipment</label>
+      <select id="vendors_rating">
+        <option value="0">0</option>
+        <option value="1">1 ⭐</option>
+        <option value="2">2 ⭐⭐</option>
+        <option value="3">3 ⭐⭐⭐</option>
+        <option value="4">4 ⭐⭐⭐⭐</option>
+        <option value="5">5 ⭐⭐⭐⭐⭐</option>
+      </select>
+
+      <!--
       <label>What did you like most?</label>
       <textarea id="like_most" rows="3"></textarea>
 
       <label>What can be improved?</label>
       <textarea id="improve_next" rows="3"></textarea>
+      -->
 
-      <h3>Section 5: Future Suggestions</h3>
+      <h3>Future Suggestions</h3>
 
-      <label>Suggestions for next year</label>
-      <textarea id="future_suggestions" rows="3"></textarea>
+      <label>Where would you like the next RSSA Conference to be held?</label>
+      <textarea id="future_suggestions" rows="2"></textarea>
 
+      <!-- NEW: important change / theme / speakers -->
+      <label>THE MOST IMPORTANT CHANGE YOU REQUEST FOR NEXT RSSA CONFERENCE IS</label>
+      <textarea id="important_change" rows="3"></textarea>
+
+      <label>THE THEME YOU SUGGEST FOR NEXT RSSA CONFERENCE IS</label>
+      <textarea id="suggested_theme" rows="3"></textarea>
+
+      <label>SPEAKERS YOU SUGGEST THE RSSA INVITES IN FUTURE CONFERENCES</label>
+      <input id="suggested_speakers" type="text" placeholder="Enter speaker names" />
+
+      <!--
       <label>Interested in future RSSA activities?</label>
       <select id="future_interest">
         <option>Yes</option><option>No</option><option>Maybe</option>
       </select>
+      -->
 
       <label>Additional comments</label>
       <textarea id="additional_comments" rows="3"></textarea>
@@ -478,7 +699,7 @@
     </div>
 
     <!-- Table -->
-    <div id="adminTableWrap" style="overflow:auto; border:1px solid #e6e8ef; border-radius:12px; margin-top:10px"></div>
+    <div id="adminTableWrap" style="overflow:auto; border:1px solid #e6e8ef; border-radius:12px; margin-top:10px; height: 600px;"></div>
   </div>
 
   <!-- Overlay -->
@@ -489,436 +710,813 @@
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
-<script type="module">
-
-function showSpinner() {
-  document.getElementById("loadingSpinner").classList.remove("hidden");
-}
-function hideSpinner() {
-  document.getElementById("loadingSpinner").classList.add("hidden");
-}
-
-/* ---- FIREBASE ---- */
-const firebaseConfig = {
-  apiKey: "AIzaSyDBaRLjkb17ahZaSCKkm1O_6lgfVcxyHZw",
-  authDomain: "rssa-84372.firebaseapp.com",
-  projectId: "rssa-84372",
-  storageBucket: "rssa-84372.firebasestorage.app",
-  messagingSenderId: "1010067943809",
-  appId: "1:1010067943809:web:5a6aec27ecd285e54c3880"
-};
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, serverTimestamp, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
-import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
-
-const app = initializeApp(firebaseConfig);
-const db  = getFirestore(app);
-const auth = getAuth();
-
-/* ---- ELEMENTS ---- */
-const emailInput = document.getElementById("email");
-const btnCheck   = document.getElementById("btnCheck");
-const btnClear   = document.getElementById("btnClear");
-
-const surveyForm = document.getElementById("surveyForm");
-const fullnameEl = document.getElementById("fullname");
-
-const roleChecks = Array.from(document.querySelectorAll('input[name="roles"]'));
-function getSelectedRoles(){ return roleChecks.filter(c => c.checked).map(c => c.value); }
-
-const welcomeBar = document.getElementById("welcomeBar");
-const resultsArea = document.getElementById("resultsArea");
-const certList    = document.getElementById("certList");
-const msg         = document.getElementById("msg");
-const formMsg     = document.getElementById("formMsg");
-const statusEl    = document.getElementById("status");
-const btnCancel   = document.getElementById("btnCancel");
-
-/* Admin UI refs */
-const btnAdmin    = document.getElementById('btnAdmin');
-const adminPanel  = document.getElementById('adminPanel');
-const adminOverlay= document.getElementById('adminOverlay');
-const btnCloseAdmin = document.getElementById('btnCloseAdmin');
-const btnLoadAdmin= document.getElementById('btnLoadAdmin');
-const btnExportCSV= document.getElementById('btnExportCSV');
-const adminMsg    = document.getElementById('adminMsg');
-const adminTableWrap = document.getElementById('adminTableWrap');
-const adminSearch = document.getElementById('adminSearch');
-const analyticsBox = document.getElementById('analytics');
-const btnSignIn   = document.getElementById('btnSignIn');
-const btnSignOut  = document.getElementById('btnSignOut');
-const authStatus  = document.getElementById('authStatus');
-
-let DATA = null;
-let currentEmailKey = null;
-let currentEmail    = null;
-
-let __ROWS = [];
-let __FILTERED = [];
-let __CHARTS = {};
-let __CHART_DATA = {};
-let __CHART_TYPES = {}; // per-canvas type: 'pie' | 'bar'
-
-/* ---- name helpers ---- */
-function toTitle(s){ return s.split(/[\s._-]+/).filter(Boolean).map(w => w[0].toUpperCase()+w.slice(1)).join(" "); }
-function nameFromEmail(email){ const local = email.split("@")[0]; return toTitle(local.replace(/\d+/g," ").replace(/\./g," ")); }
-function showWelcome(name){ if(!name){ welcomeBar.classList.add("hidden"); return; } welcomeBar.innerHTML = `<b>👋 Welcome,</b> ${name}`; welcomeBar.classList.remove("hidden"); }
-
-/* ---- Load data.json ---- */
-fetch("data.json").then(r=>r.json()).then(j=>DATA=j);
-
-/* ---- Utilities ---- */
-function emailToKey(email) {
-  return email
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "_");  // replace @ . - and all other symbols with _
-}
-
-async function hasSubmitted(key){
-  try{
-    const snap = await getDoc(doc(db,"rssasurvey",key));
-    if(!snap.exists()) return false;
-    const d = snap.data();
-    return Array.isArray(d.submissions) && d.submissions.length>0;
-  }catch(e){
-    return false;
+  <script type="module">
+  function showSpinner() {
+    document.getElementById("loadingSpinner").classList.remove("hidden");
   }
-}
+  function hideSpinner() {
+    document.getElementById("loadingSpinner").classList.add("hidden");
+  }
 
-/* ---- BUTTON: Check ---- */
-btnCheck.onclick = async () => {
-  msg.textContent = ""; resultsArea.classList.add("hidden"); certList.innerHTML = ""; surveyForm.classList.add("hidden"); formMsg.textContent = "";
-  const email = emailInput.value.trim().toLowerCase();
-  if(!email.includes("@")){ msg.textContent="Enter valid email"; return; }
-  const key = emailToKey(email); currentEmailKey = key; currentEmail = email;
-  if(!DATA || !DATA[key]){ msg.textContent="Email not found in list."; return; }
-  const entry = DATA[key]; const prefName = entry.name || nameFromEmail(email); fullnameEl.value = entry.name || ""; showWelcome(prefName);
-  if(await hasSubmitted(key)){ msg.textContent = "You already submitted. Showing certificates."; showCertificatesForKey(key); return; }
-  msg.textContent = "Email verified — please complete the survey."; surveyForm.classList.remove("hidden");
-  fullnameEl.oninput = () => showWelcome(fullnameEl.value || prefName);
-};
-
-/* ---- BUTTON: Clear ---- */
-btnClear.onclick = () => { emailInput.value=""; msg.textContent=""; welcomeBar.classList.add("hidden"); surveyForm.classList.add("hidden"); resultsArea.classList.add("hidden"); };
-
-/* ---- BUTTON: Cancel ---- */
-btnCancel.onclick = () => { surveyForm.classList.add("hidden"); };
-
-/* ---- SUBMIT SURVEY ---- */
-surveyForm.onsubmit = async (e) => {
-  e.preventDefault();
-  const submission = {
-    id: "resp-"+Math.random().toString(36).slice(2,8),
-    submittedAt: new Date().toISOString(),
-    fullname: fullnameEl.value.trim(),
-    roles: getSelectedRoles(),
-    overall_satisfaction: document.getElementById("overall_satisfaction").value,
-    venue_rating: document.getElementById("venue_rating").value,
-    registration_process: document.getElementById("registration_process").value,
-    lectures_quality: document.getElementById("lectures_quality").value,
-    themes_relevance: document.getElementById("themes_relevance").value,
-    schedule_duration: document.getElementById("schedule_duration").value,
-    communication_rating: document.getElementById("communication_rating").value,
-    event_support_rating: document.getElementById("event_support_rating").value,
-    accessibility_rating: document.getElementById("accessibility_rating").value,
-    like_most: document.getElementById("like_most").value.trim(),
-    improve_next: document.getElementById("improve_next").value.trim(),
-    future_suggestions: document.getElementById("future_suggestions").value.trim(),
-    future_interest: document.getElementById("future_interest").value,
-    additional_comments: document.getElementById("additional_comments").value.trim(),
+  /* ---- FIREBASE ---- */
+  const firebaseConfig = {
+    apiKey: "AIzaSyDBaRLjkb17ahZaSCKkm1O_6lgfVcxyHZw",
+    authDomain: "rssa-84372.firebaseapp.com",
+    projectId: "rssa-84372",
+    storageBucket: "rssa-84372.firebasestorage.app",
+    messagingSenderId: "1010067943809",
+    appId: "1:1010067943809:web:5a6aec27ecd285e54c3880"
   };
 
-  const ref = doc(db,"rssasurvey",currentEmailKey);
-  try{ await updateDoc(ref,{ submissions: arrayUnion(submission), lastSubmitted: serverTimestamp(), email: currentEmail }); }
-  catch(e){ await setDoc(ref,{ email:currentEmail, submissions:[submission], lastSubmitted:serverTimestamp() }); }
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  import { getFirestore, doc, getDoc, setDoc, updateDoc, arrayUnion, serverTimestamp, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
 
-  showWelcome(submission.fullname);
-  surveyForm.classList.add("hidden");
-  showCertificatesForKey(currentEmailKey);
-};
+  import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
-/* ---- DISPLAY CERTIFICATES ---- */
-function showCertificatesForKey(key){
-  const entry = DATA[key]; resultsArea.classList.remove("hidden");
-  const urls = [];
-  if(entry.files) urls.push(...entry.files.map(f=>`./certs/${f}`));
-  if(entry.certificateURLs) urls.push(...entry.certificateURLs);
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+  const auth = getAuth();
 
-  certList.innerHTML = "";
-  urls.forEach(url=>{
-    const card = document.createElement("div"); card.className="cert-card";
+  /* ---- ELEMENTS ---- */
+  const emailInput = document.getElementById("email");
+  const btnCheck   = document.getElementById("btnCheck");
+  const btnClear   = document.getElementById("btnClear");
+
+  const surveyForm = document.getElementById("surveyForm");
+  const fullnameEl = document.getElementById("fullname");
+
+  const roleChecks = Array.from(document.querySelectorAll('input[name="roles"]'));
+  function getSelectedRoles(){ return roleChecks.filter(c => c.checked).map(c => c.value); }
+
+  const welcomeBar = document.getElementById("welcomeBar");
+  const resultsArea = document.getElementById("resultsArea");
+  const certList    = document.getElementById("certList");
+  const msg         = document.getElementById("msg");
+  const formMsg     = document.getElementById("formMsg");
+  const statusEl    = document.getElementById("status");
+  const btnCancel   = document.getElementById("btnCancel");
+
+  /* Preview modal elements */
+  const previewModal = document.getElementById("previewModal");
+  const previewBody = document.getElementById("previewBody");
+  const previewClose = document.getElementById("previewClose");
+
+  function openPreview(url) {
+    if (!previewModal || !previewBody) return;
+
+    previewBody.innerHTML = "";
     const lower = String(url).toLowerCase();
 
-    if (lower.endsWith('.pdf')){
-      // ✅ Inline PDF preview with fallback
-      const obj = document.createElement('object');
-      obj.type = 'application/pdf';
+    if (lower.endsWith(".pdf")) {
+      const obj = document.createElement("object");
+      obj.type = "application/pdf";
       obj.data = url;
-      obj.setAttribute('aria-label','PDF preview');
-      obj.style.width = '100%';
-      obj.style.height = '420px';
-
-      const fallback = document.createElement('p');
-      const link = document.createElement('a');
-      link.href = url; link.target = '_blank'; link.textContent = 'Open PDF';
-      fallback.appendChild(document.createTextNode('Your browser cannot preview PDF. '));
-      fallback.appendChild(link);
-      obj.appendChild(fallback);
-
-      card.appendChild(obj);
+      obj.style.width = "80vw";
+      obj.style.height = "80vh";
+      previewBody.appendChild(obj);
     } else {
-      // existing image flow
       const img = document.createElement("img");
-      img.src = url; img.alt = 'Certificate image';
-      card.appendChild(img);
+      img.src = url;
+      img.alt = "Certificate preview";
+      previewBody.appendChild(img);
     }
 
-    // Open / Download button (works for both)
-    const a = document.createElement("a");
-    a.href = url; a.target = "_blank";
-    a.download = url.split("/").pop();
-    a.textContent = "Open / Download";
-    a.className = "download";
-    card.appendChild(a);
+    previewModal.classList.remove("hidden");
+  }
 
-    certList.appendChild(card);
+  previewClose?.addEventListener("click", () => {
+    previewModal.classList.add("hidden");
   });
-}
 
+  previewModal?.addEventListener("click", (e) => {
+    if (e.target === previewModal) {
+      previewModal.classList.add("hidden");
+    }
+  });
 
-/* ---- ADMIN DRAWER TOGGLE ---- */
-btnAdmin.onclick = () => { adminPanel.classList.add('open'); adminOverlay.classList.add('show'); };
-btnCloseAdmin.onclick = () => { adminPanel.classList.remove('open'); adminOverlay.classList.remove('show'); };
-adminOverlay.onclick = () => { adminPanel.classList.remove('open'); adminOverlay.classList.remove('show'); };
+  /* Admin UI refs */
+  const btnAdmin    = document.getElementById('btnAdmin');
+  const adminPanel  = document.getElementById('adminPanel');
+  const adminOverlay= document.getElementById('adminOverlay');
+  const btnCloseAdmin = document.getElementById('btnCloseAdmin');
+  const btnLoadAdmin= document.getElementById('btnLoadAdmin');
+  const btnExportCSV= document.getElementById('btnExportCSV');
+  const adminMsg    = document.getElementById('adminMsg');
+  const adminTableWrap = document.getElementById('adminTableWrap');
+  const adminSearch = document.getElementById('adminSearch');
+  const analyticsBox = document.getElementById('analytics');
+  const btnSignIn   = document.getElementById('btnSignIn');
+  const btnSignOut  = document.getElementById('btnSignOut');
+  const authStatus  = document.getElementById('authStatus');
 
-/* ---- AUTH ---- */
-onAuthStateChanged(auth, (user) => {
-  if (user) { authStatus.textContent = `Signed in as ${user.email}`; btnSignIn.classList.add('hidden'); btnSignOut.classList.remove('hidden'); }
-  else { authStatus.textContent = 'Not signed in'; btnSignIn.classList.remove('hidden'); btnSignOut.classList.add('hidden'); }
-});
-btnSignIn?.addEventListener('click', async () => { try { const provider = new GoogleAuthProvider(); await signInWithPopup(auth, provider); } catch (e) { alert('Sign-in failed: ' + (e?.message || e)); } });
-btnSignOut?.addEventListener('click', async () => { try { await signOut(auth); } catch(e){} });
+	// 👇 Stepper UI 👇
+  const steps = {
+    email: document.getElementById("stepEmail"),
+    survey: document.getElementById("stepSurvey"),
+    cert: document.getElementById("stepCert")
+  };
 
-/* ---- ADMIN LOAD + CSV + SEARCH ---- */
-btnLoadAdmin?.addEventListener('click', async () => {
-  adminMsg.textContent = ''; adminTableWrap.innerHTML = '';
-  if (!auth.currentUser) { adminMsg.textContent = 'Please sign in first.'; adminMsg.style.color = '#b91c1c'; return; }
-  adminMsg.textContent = 'Loading submissions...'; adminMsg.style.color = '';
-  try {
-    const colRef = collection(db, 'rssasurvey');
-    const snap = await getDocs(colRef);
-    const rows = [];
-    snap.forEach(docSnap => {
-      const d = docSnap.data() || {}; const subs = Array.isArray(d.submissions) ? d.submissions : []; const latest = subs[subs.length - 1] || {}; const lastTime = d.lastSubmitted?.toDate?.() || null;
-      rows.push({
-        email: d.email || docSnap.id,
-        submissions_count: subs.length,
-        lastSubmittedISO: lastTime ? lastTime.toISOString() : '',
-        fullname: latest.fullname || '',
-        roles: Array.isArray(latest.roles) ? latest.roles.join('; ') : (latest.role || ''),
-        overall_satisfaction: latest.overall_satisfaction || '',
-        venue_rating: latest.venue_rating || '',
-        registration_process: latest.registration_process || '',
-        lectures_quality: latest.lectures_quality || '',
-        themes_relevance: latest.themes_relevance || '',
-        schedule_duration: latest.schedule_duration || '',
-        communication_rating: latest.communication_rating || '',
-        event_support_rating: latest.event_support_rating || '',
-        accessibility_rating: latest.accessibility_rating || '',
-        like_most: latest.like_most || '',
-        improve_next: latest.improve_next || '',
-        future_suggestions: latest.future_suggestions || '',
-        future_interest: latest.future_interest || '',
-        additional_comments: latest.additional_comments || ''
+  function setStep(currentStep) {
+    steps.email.classList.remove("active", "done");
+    steps.survey.classList.remove("active", "done");
+    steps.cert.classList.remove("active", "done");
+
+    if (currentStep === "email") {
+      steps.email.classList.add("active");
+    } else if (currentStep === "survey") {
+      steps.email.classList.add("done");
+      steps.survey.classList.add("active");
+    } else if (currentStep === "cert") {
+      steps.email.classList.add("done");
+      steps.survey.classList.add("done");
+      steps.cert.classList.add("active");
+    }
+  }
+
+  let DATA = null;
+  let currentEmailKey = null;
+  let currentEmail    = null;
+
+  let __ROWS = [];
+  let __FILTERED = [];
+  let __CHARTS = {};
+  let __CHART_DATA = {};
+  let __CHART_TYPES = {}; // per-canvas type: 'pie' | 'bar'
+
+  /* ---- name helpers ---- */
+  function toTitle(s){ return s.split(/[\s._-]+/).filter(Boolean).map(w => w[0].toUpperCase()+w.slice(1)).join(" "); }
+  function nameFromEmail(email){ const local = email.split("@")[0]; return toTitle(local.replace(/\d+/g," ").replace(/\./g," ")); }
+  function showWelcome(name){ if(!name){ welcomeBar.classList.add("hidden"); return; } welcomeBar.innerHTML = `<b>👋 Welcome,</b> ${name}`; welcomeBar.classList.remove("hidden"); }
+
+  /* ---- Load data.json ---- */
+  fetch("data.json").then(r=>r.json()).then(j=>DATA=j);
+
+  /* ---- Utilities ---- */
+  function emailToKey(email) {
+    return email
+      .trim()
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "_");
+  }
+
+  async function hasSubmitted(key, email) {
+    try {
+      const checkSnap = (snap) => {
+        if (!snap || !snap.exists()) return false;
+        const d = snap.data() || {};
+        return Array.isArray(d.submissions) && d.submissions.length > 0;
+      };
+
+      const refKey = doc(db, "rssasurvey", key);
+      const snapKey = await getDoc(refKey);
+      if (checkSnap(snapKey)) {
+        console.log("hasSubmitted: found by key", key);
+        return true;
+      }
+
+      if (email) {
+        const rawId = email.trim().toLowerCase();
+        if (rawId !== key) {
+          const refRaw = doc(db, "rssasurvey", rawId);
+          const snapRaw = await getDoc(refRaw);
+          if (checkSnap(snapRaw)) {
+            console.log("hasSubmitted: found by raw email", rawId);
+            return true;
+          }
+        }
+      }
+
+      console.log("hasSubmitted: no submission found for", key, email);
+      return false;
+    } catch (e) {
+      console.error("hasSubmitted error:", e);
+      return false;
+    }
+  }
+
+  /* ---- BUTTON: Check ---- */
+  btnCheck.onclick = async () => {
+    msg.textContent = "";
+    resultsArea.classList.add("hidden");
+    certList.innerHTML = "";
+    surveyForm.classList.add("hidden");
+    formMsg.textContent = "";
+    statusEl.textContent = "";
+
+    const email = emailInput.value.trim().toLowerCase();
+    if (!email.includes("@")) {
+      msg.textContent = "Enter valid email";
+      return;
+    }
+
+    showSpinner();
+
+    try {
+      const key = emailToKey(email);
+      currentEmailKey = key;
+      currentEmail = email;
+
+      if (!DATA || !DATA[key]) {
+        msg.textContent = "Email not found in list.";
+        return;
+      }
+
+      const entry = DATA[key];
+      const prefName = entry.name || nameFromEmail(email);
+      fullnameEl.value = entry.name || "";
+      showWelcome(prefName);
+
+      if (await hasSubmitted(key, email)) {
+        msg.textContent = "You already submitted. Showing certificates.";
+        setStep("cert");
+        showCertificatesForKey(key);
+        return;
+      }
+
+      msg.textContent = "Email verified — please complete the survey.";
+      surveyForm.classList.remove("hidden");
+      setStep("survey");
+      fullnameEl.oninput = () => showWelcome(fullnameEl.value || prefName);
+
+    } catch (e) {
+      console.error(e);
+      msg.textContent = "Something went wrong. Please try again.";
+    } finally {
+      hideSpinner();
+    }
+  };
+
+  /* ---- BUTTON: Clear ---- */
+  btnClear.onclick = () => {
+    emailInput.value="";
+    msg.textContent="";
+    statusEl.textContent="";
+    welcomeBar.classList.add("hidden");
+    surveyForm.classList.add("hidden");
+    resultsArea.classList.add("hidden");
+    setStep("email");
+  };
+
+  /* ---- BUTTON: Cancel ---- */
+  btnCancel.onclick = () => {
+    surveyForm.classList.add("hidden");
+    setStep("email");
+  };
+
+  /* ---- SUBMIT SURVEY ---- */
+  surveyForm.onsubmit = async (e) => {
+    e.preventDefault();
+
+    formMsg.textContent = "";
+    msg.textContent = "";
+    statusEl.textContent = "";
+
+    showSpinner();
+
+    const submission = {
+      id: "resp-" + Math.random().toString(36).slice(2, 8),
+      submittedAt: new Date().toISOString(),
+      fullname: fullnameEl.value.trim(),
+      roles: getSelectedRoles(),
+      overall_satisfaction: document.getElementById("overall_satisfaction").value,
+      venue_rating: document.getElementById("venue_rating").value,
+      registration_process: document.getElementById("registration_process").value,
+      lectures_quality: document.getElementById("lectures_quality").value,
+      themes_relevance: document.getElementById("themes_relevance").value,
+      schedule_duration: document.getElementById("schedule_duration").value,
+
+      // Track & workshop
+      favorite_track: document.getElementById("favorite_track").value,
+      favorite_track_rating: document.getElementById("favorite_track_rating")?.value || "",
+      favorite_track_comment: document.getElementById("favorite_track_comment").value.trim(),
+      favorite_workshop: document.getElementById("favorite_workshop").value,
+      favorite_workshop_rating: document.getElementById("favorite_workshop_rating")?.value || "",
+      favorite_workshop_comment: document.getElementById("favorite_workshop_comment").value.trim(),
+
+      communication_rating: document.getElementById("communication_rating").value,
+      event_support_rating: document.getElementById("event_support_rating").value,
+      accessibility_rating: document.getElementById("accessibility_rating").value,
+
+      // Networking & exhibitors
+      networking_rating: document.getElementById("networking_rating")?.value || "0",
+      vendors_rating: document.getElementById("vendors_rating")?.value || "0",
+
+      like_most: document.getElementById("like_most")?.value.trim() || "",
+      improve_next: document.getElementById("improve_next")?.value.trim() || "",
+      future_suggestions: document.getElementById("future_suggestions").value.trim(),
+      future_interest: document.getElementById("future_interest")?.value || "",
+      additional_comments: document.getElementById("additional_comments").value.trim(),
+
+      important_change: document.getElementById("important_change").value.trim(),
+      suggested_theme: document.getElementById("suggested_theme").value.trim(),
+      suggested_speakers: document.getElementById("suggested_speakers").value.trim(),
+    };
+
+    const ref = doc(db, "rssasurvey", currentEmailKey);
+
+    try {
+      try {
+        await updateDoc(ref, {
+          submissions: arrayUnion(submission),
+          lastSubmitted: serverTimestamp(),
+          email: currentEmail
+        });
+      } catch (e) {
+        await setDoc(ref, {
+          email: currentEmail,
+          submissions: [submission],
+          lastSubmitted: serverTimestamp()
+        });
+      }
+
+      showWelcome(submission.fullname || nameFromEmail(currentEmail));
+
+      formMsg.textContent = "";
+
+      statusEl.textContent = "✅ Thank you for completing the survey! Your response has been saved. Your certificate(s) are shown below.";
+      statusEl.style.color = "#065f46";
+      statusEl.style.fontWeight = "500";
+
+      surveyForm.classList.add("hidden");
+      setStep("cert");
+      showCertificatesForKey(currentEmailKey);
+
+      if (resultsArea) {
+        resultsArea.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+    } catch (err) {
+      console.error("Submit error:", err);
+      formMsg.textContent = "❌ Something went wrong while saving your response. Please try again.";
+      formMsg.style.color = "#b91c1c";
+    } finally {
+      hideSpinner();
+    }
+  };
+
+  /* ---- DISPLAY CERTIFICATES ---- */
+  function showCertificatesForKey(key){
+    const entry = DATA[key];
+    resultsArea.classList.remove("hidden");
+
+    const urls = [];
+    if (entry?.files) urls.push(...entry.files.map(f => `./certs/${f}`));
+    if (entry?.certificateURLs) urls.push(...entry.certificateURLs);
+
+    certList.innerHTML = "";
+
+    if (!urls.length) {
+      hideSpinner();
+      return;
+    }
+
+    showSpinner();
+
+    let pending = urls.length;
+
+    const doneOne = () => {
+      pending--;
+      if (pending <= 0) {
+        hideSpinner();
+      }
+    };
+
+    urls.forEach(url => {
+      const card = document.createElement("div");
+      card.className = "cert-card";
+      const lower = String(url).toLowerCase();
+
+      if (lower.endsWith('.pdf')) {
+        const obj = document.createElement('object');
+        obj.type = 'application/pdf';
+        obj.data = url;
+        obj.setAttribute('aria-label', 'PDF preview');
+        obj.style.width = '100%';
+        obj.style.height = '420px';
+
+        obj.addEventListener('load', doneOne);
+        obj.addEventListener('error', doneOne);
+
+        const fallback = document.createElement('p');
+        const link = document.createElement('a');
+        link.href = url;
+        link.target = '_blank';
+        link.textContent = 'Open PDF';
+        fallback.appendChild(document.createTextNode('Your browser cannot preview PDF. '));
+        fallback.appendChild(link);
+        obj.appendChild(fallback);
+
+        card.appendChild(obj);
+      } else {
+        const img = document.createElement("img");
+        img.alt = 'Certificate image';
+
+        img.addEventListener('load', doneOne);
+        img.addEventListener('error', doneOne);
+
+        img.src = url;
+        card.appendChild(img);
+      }
+
+      // Open preview button
+      const openBtn = document.createElement("button");
+      openBtn.type = "button";
+      openBtn.textContent = "Open 🔍";
+      openBtn.style.marginRight = "8px";
+      openBtn.className = "secondary btn-inline";
+      openBtn.addEventListener("click", () => openPreview(url));
+      card.appendChild(openBtn);
+
+      // Download link
+      const a = document.createElement("a");
+      a.href = url;
+      a.target = "_blank";
+      a.download = url.split("/").pop();
+      a.textContent = "Download ⬇️";
+      a.className = "download";
+      card.appendChild(a);
+
+      certList.appendChild(card);
+    });
+
+    setTimeout(() => {
+      if (pending > 0) {
+        hideSpinner();
+      }
+    }, 8000);
+  }
+
+  /* ---- ADMIN DRAWER TOGGLE ---- */
+  btnAdmin.onclick = () => { adminPanel.classList.add('open'); adminOverlay.classList.add('show'); };
+  btnCloseAdmin.onclick = () => { adminPanel.classList.remove('open'); adminOverlay.classList.remove('show'); };
+  adminOverlay.onclick = () => { adminPanel.classList.remove('open'); adminOverlay.classList.remove('show'); };
+
+  /* ---- AUTH ---- */
+  onAuthStateChanged(auth, (user) => {
+    if (user) { authStatus.textContent = `Signed in as ${user.email}`; btnSignIn.classList.add('hidden'); btnSignOut.classList.remove('hidden'); }
+    else { authStatus.textContent = 'Not signed in'; btnSignIn.classList.remove('hidden'); btnSignOut.classList.add('hidden'); }
+  });
+  btnSignIn?.addEventListener('click', async () => { try { const provider = new GoogleAuthProvider(); await signInWithPopup(auth, provider); } catch (e) { alert('Sign-in failed: ' + (e?.message || e)); } });
+  btnSignOut?.addEventListener('click', async () => { try { await signOut(auth); } catch(e){} });
+
+  /* ---- ADMIN LOAD + CSV + SEARCH ---- */
+  btnLoadAdmin?.addEventListener('click', async () => {
+    adminMsg.textContent = ''; adminTableWrap.innerHTML = '';
+    if (!auth.currentUser) { adminMsg.textContent = 'Please sign in first.'; adminMsg.style.color = '#b91c1c'; return; }
+    adminMsg.textContent = 'Loading submissions...'; adminMsg.style.color = '';
+    try {
+      const colRef = collection(db, 'rssasurvey');
+      const snap = await getDocs(colRef);
+      const rows = [];
+      snap.forEach(docSnap => {
+        const d = docSnap.data() || {};
+        const subs = Array.isArray(d.submissions) ? d.submissions : [];
+        const latest = subs[subs.length - 1] || {};
+        const lastTime = d.lastSubmitted?.toDate?.() || null;
+        rows.push({
+          email: d.email || docSnap.id,
+          submissions_count: subs.length,
+          lastSubmittedISO: lastTime ? lastTime.toISOString() : '',
+          fullname: latest.fullname || '',
+          roles: Array.isArray(latest.roles) ? latest.roles.join('; ') : (latest.role || ''),
+          overall_satisfaction: latest.overall_satisfaction || '',
+          venue_rating: latest.venue_rating || '',
+          registration_process: latest.registration_process || '',
+          lectures_quality: latest.lectures_quality || '',
+          themes_relevance: latest.themes_relevance || '',
+          schedule_duration: latest.schedule_duration || '',
+
+          favorite_track: latest.favorite_track || '',
+          favorite_track_rating: latest.favorite_track_rating || '',
+          favorite_track_comment: latest.favorite_track_comment || '',
+          favorite_workshop: latest.favorite_workshop || '',
+          favorite_workshop_rating: latest.favorite_workshop_rating || '',
+          favorite_workshop_comment: latest.favorite_workshop_comment || '',
+
+          communication_rating: latest.communication_rating || '',
+          event_support_rating: latest.event_support_rating || '',
+          accessibility_rating: latest.accessibility_rating || '',
+          networking_rating: latest.networking_rating || '',
+          vendors_rating: latest.vendors_rating || '',
+
+          like_most: latest.like_most || '',
+          improve_next: latest.improve_next || '',
+          future_suggestions: latest.future_suggestions || '',
+          future_interest: latest.future_interest || '',
+          additional_comments: latest.additional_comments || '',
+          important_change: latest.important_change || '',
+          suggested_theme: latest.suggested_theme || '',
+          suggested_speakers: latest.suggested_speakers || ''
+        });
+      });
+      __ROWS = rows; __FILTERED = rows.slice();
+      renderAdminTable(__FILTERED);
+      renderAnalytics(__FILTERED);
+      analyticsBox.classList.remove('hidden');
+      adminMsg.textContent = `Loaded ${rows.length} record(s).`;
+      adminMsg.style.color = '#065f46';
+    } catch (e) {
+      console.error('Admin load error:', e);
+      adminMsg.textContent = 'Failed to load. Check console.';
+      adminMsg.style.color = '#b91c1c';
+    }
+  });
+
+  btnExportCSV?.addEventListener('click', () => {
+    const rows = __FILTERED || __ROWS || [];
+    if (!rows.length) {
+      adminMsg.textContent = 'Nothing to export. Load submissions first.';
+      adminMsg.style.color = '#b91c1c';
+      return;
+    }
+    const csv = toCSV(rows);
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `rssa_submissions_${new Date().toISOString().slice(0,10)}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    adminMsg.textContent = 'CSV exported.';
+    adminMsg.style.color = '#065f46';
+  });
+
+  adminSearch?.addEventListener('input', () => {
+    const q = adminSearch.value.toLowerCase();
+    __FILTERED = !q ? __ROWS.slice() : __ROWS.filter(r =>
+      Object.values(r).some(v => String(v || '').toLowerCase().includes(q))
+    );
+    renderAdminTable(__FILTERED);
+    renderAnalytics(__FILTERED);
+  });
+
+  /* ---- RENDER TABLE (+ per-user PDF) ---- */
+  function renderAdminTable(rows){
+    if (!rows.length){
+      adminTableWrap.innerHTML = '<div class="muted">No data.</div>';
+      return;
+    }
+    const cols = Object.keys(rows[0]);
+    const allCols = [...cols, '_actions'];
+    const ths = allCols.map(c =>
+      `<th style="white-space:nowrap; text-align:left; padding:10px; border-bottom:1px solid #e6e8ef">${c === '_actions' ? 'Actions' : c}</th>`
+    ).join('');
+    const trs = rows.map((r, idx) => {
+      const tds = cols.map(c =>
+        `<td style="padding:10px; border-bottom:1px solid #eef1f6; vertical-align:top">${escapeHTML(r[c] ?? '')}</td>`
+      ).join('');
+      const pdfBtn = `<button class="btn-inline secondary" data-pdf="${idx}">PDF</button>`;
+      return `<tr>${tds}<td style="padding:10px; border-bottom:1px solid #eef1f6; vertical-align:top">${pdfBtn}</td></tr>`;
+    }).join('');
+    adminTableWrap.innerHTML = `
+      <table style="width:100%; border-collapse:collapse; font-size:13px">
+        <thead style="position:sticky; top:0; background:#fafbff;">
+          <tr>${ths}</tr>
+        </thead>
+        <tbody>${trs}</tbody>
+      </table>`;
+    adminTableWrap.querySelectorAll('[data-pdf]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = parseInt(btn.getAttribute('data-pdf'), 10);
+        exportUserPDF(rows[idx]);
       });
     });
-    __ROWS = rows; __FILTERED = rows.slice(); renderAdminTable(__FILTERED); renderAnalytics(__FILTERED); analyticsBox.classList.remove('hidden');
-    adminMsg.textContent = `Loaded ${rows.length} record(s).`; adminMsg.style.color = '#065f46';
-  } catch (e) { console.error('Admin load error:', e); adminMsg.textContent = 'Failed to load. Check console.'; adminMsg.style.color = '#b91c1c'; }
-});
-
-btnExportCSV?.addEventListener('click', () => {
-  const rows = __FILTERED || __ROWS || []; if (!rows.length) { adminMsg.textContent = 'Nothing to export. Load submissions first.'; adminMsg.style.color = '#b91c1c'; return; }
-  const csv = toCSV(rows); const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = `rssa_submissions_${new Date().toISOString().slice(0,10)}.csv`; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); adminMsg.textContent = 'CSV exported.'; adminMsg.style.color = '#065f46';
-});
-
-adminSearch?.addEventListener('input', () => {
-  const q = adminSearch.value.toLowerCase();
-  __FILTERED = !q ? __ROWS.slice() : __ROWS.filter(r => Object.values(r).some(v => String(v || '').toLowerCase().includes(q)));
-  renderAdminTable(__FILTERED); renderAnalytics(__FILTERED);
-});
-
-/* ---- RENDER TABLE (+ per-user PDF) ---- */
-function renderAdminTable(rows){
-  if (!rows.length){ adminTableWrap.innerHTML = '<div class="muted">No data.</div>'; return; }
-  const cols = Object.keys(rows[0]); const allCols = [...cols, '_actions'];
-  const ths = allCols.map(c => `<th style="white-space:nowrap; text-align:left; padding:10px; border-bottom:1px solid #e6e8ef">${c === '_actions' ? 'Actions' : c}</th>`).join('');
-  const trs = rows.map((r, idx) => {
-    const tds = cols.map(c => `<td style="padding:10px; border-bottom:1px solid #eef1f6; vertical-align:top">${escapeHTML(r[c] ?? '')}</td>`).join('');
-    const pdfBtn = `<button class="btn-inline secondary" data-pdf="${idx}">PDF</button>`;
-    return `<tr>${tds}<td style="padding:10px; border-bottom:1px solid #eef1f6; vertical-align:top">${pdfBtn}</td></tr>`;
-  }).join('');
-  adminTableWrap.innerHTML = `<table style="width:100%; border-collapse:collapse; font-size:13px"><thead style="position:sticky; top:0; background:#fafbff;"><tr>${ths}</tr></thead><tbody>${trs}</tbody></table>`;
-  adminTableWrap.querySelectorAll('[data-pdf]').forEach(btn => { btn.addEventListener('click', () => { const idx = parseInt(btn.getAttribute('data-pdf'), 10); exportUserPDF(rows[idx]); }); });
-}
-function escapeHTML(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[m])); }
-function toCSV(rows){ if (!rows.length) return ''; const headers = Object.keys(rows[0]); const esc = v => { const s = String(v ?? ''); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }; return [ headers.join(','), ...rows.map(r => headers.map(h => esc(r[h])).join(',')) ].join('\n'); }
-
-/* ---- PDF EXPORT ---- */
-async function exportUserPDF(row){
-  const { jsPDF } = window.jspdf; const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-  const title = `RSSA Survey — ${row.fullname || row.email}`; doc.setFontSize(16); doc.text(title, 40, 50); doc.setFontSize(11);
-  const lines = []; Object.keys(row).forEach(k => { if (k === '_actions') return; lines.push(`${k}: ${row[k] ?? ''}`); });
-  const maxWidth = 515; let y = 80; const lineHeight = 16;
-  lines.forEach(text => { const wrapped = doc.splitTextToSize(text, maxWidth); wrapped.forEach(line => { if (y > 780) { doc.addPage(); y = 60; } doc.text(line, 40, y); y += lineHeight; }); });
-  doc.save(`rssa_${(row.fullname||'user').toString().replace(/\s+/g,'_')}.pdf`);
-}
-
-/* ---- ANALYTICS: charts for every question + top terms ---- */
-function renderAnalytics(rows){
-  const countBy = (list) => list.reduce((m,v)=>{ const k=String(v||'').trim(); if(!k) return m; m[k]=(m[k]||0)+1; return m; }, {});
-  const get = f => rows.map(r => r[f]);
-  const rolesFlat = rows.flatMap(r => String(r.roles||'').split(';').map(s=>s.trim()).filter(Boolean));
-
-  const charts = [
-    ['chart_overall_satisfaction', 'Overall Satisfaction', countBy(get('overall_satisfaction'))],
-    ['chart_roles', 'Roles', countBy(rolesFlat)],
-    ['chart_venue_rating', 'Venue & Location', countBy(get('venue_rating'))],
-    ['chart_registration_process', 'Registration', countBy(get('registration_process'))],
-    ['chart_lectures_quality', 'Lectures & Speakers', countBy(get('lectures_quality'))],
-    ['chart_themes_relevance', 'Themes Relevance', countBy(get('themes_relevance'))],
-    ['chart_schedule_duration', 'Session Scheduling', countBy(get('schedule_duration'))],
-    ['chart_communication_rating', 'Communication (1–5)', countBy(get('communication_rating'))],
-    ['chart_event_support_rating', 'Support (1–5)', countBy(get('event_support_rating'))],
-    ['chart_accessibility_rating', 'Accessibility (1–5)', countBy(get('accessibility_rating'))],
-    ['chart_future_interest', 'Future Interest', countBy(get('future_interest'))],
-  ];
-
-  // Text fields -> top terms
-  const textCharts = [
-    ['chart_like_most_top', 'Liked Most — Top Terms', topTerms(rows, 'like_most')],
-    ['chart_improve_next_top', 'Improve Next — Top Terms', topTerms(rows, 'improve_next')],
-    ['chart_future_suggestions_top', 'Future Suggestions — Top Terms', topTerms(rows, 'future_suggestions')],
-    ['chart_additional_comments_top', 'Additional Comments — Top Terms', topTerms(rows, 'additional_comments')],
-  ];
-
-  const n = rows.length; const avgSat = avg(rows.map(r => Number(r.overall_satisfaction||0)));
-  document.getElementById('quickStats').innerHTML = `<b>Records:</b> ${n} &nbsp; • &nbsp; <b>Avg Satisfaction:</b> ${isNaN(avgSat)?'-':avgSat.toFixed(2)} &nbsp; • &nbsp; <b>Unique Roles:</b> ${Object.keys(countBy(rolesFlat)).length}`;
-
-  charts.forEach(([id, label, data]) => setChartData(id, label, data));
-  textCharts.forEach(([id, label, data]) => setChartData(id, label, data));
-
-  // Button to show all charts (lazy render)
-  const btn = document.getElementById('btnToggleCharts');
-  const grid = document.getElementById('chartsGrid');
-
-  function renderAll(){
-    Object.entries(__CHART_DATA).forEach(([cid, info]) => {
-      drawOrUpdateChart(cid, info.label, info.dataObj);
-    });
   }
 
-  if (btn && !btn.__bound) {
-    btn.__bound = true;
-    btn.addEventListener('click', () => {
-      const showing = grid.style.display !== 'none';
-      if (showing) {
-        grid.style.display = 'none';
-        btn.textContent = 'Show all charts';
-      } else {
-        grid.style.display = 'grid';
-        // add animation class to each card
-        grid.querySelectorAll('.chart-card').forEach((el,i)=>{
-          el.classList.remove('fadeSlideIn');
-          setTimeout(()=>el.classList.add('fadeSlideIn'), i*20);
-        });
-        renderAll();
-        btn.textContent = 'Hide charts';
-      }
-    });
+  function escapeHTML(s){
+    return String(s).replace(/[&<>"']/g, m => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'
+    }[m]));
   }
 
-  // If already visible (after first click), update immediately on filters/search
-  if (grid && grid.style.display !== 'none') { renderAll(); }
-
-  // Delegate: per-chart type toggle
-  if (!grid.__typeBound) {
-    grid.__typeBound = true;
-    grid.addEventListener('click', (e)=>{
-      const btn = e.target.closest('.chartToggle');
-      if (!btn) return;
-      const id = btn.getAttribute('data-target');
-      const current = (__CHART_TYPES[id] || 'pie');
-      const next = current === 'pie' ? 'bar' : 'pie';
-      __CHART_TYPES[id] = next;
-      btn.textContent = next === 'pie' ? 'Switch to Bar' : 'Switch to Pie';
-      const info = __CHART_DATA[id];
-      if (info) {
-        destroyChart(id);
-        drawOrUpdateChart(id, info.label, info.dataObj);
-      }
-    });
+  function toCSV(rows){
+    if (!rows.length) return '';
+    const headers = Object.keys(rows[0]);
+    const esc = v => {
+      const s = String(v ?? '');
+      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    return [
+      headers.join(','),
+      ...rows.map(r => headers.map(h => esc(r[h])).join(','))
+    ].join('\n');
   }
 
-}
+  /* ---- PDF EXPORT ---- */
+  async function exportUserPDF(row){
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ unit: 'pt', format: 'a4' });
 
-function avg(nums){ const list = nums.filter(x => !isNaN(x) && x>0); return !list.length ? NaN : list.reduce((a,b)=>a+b,0)/list.length; }
+    const title = `RSSA Survey — ${row.fullname || row.email}`;
+    doc.setFontSize(16);
+    doc.text(title, 40, 50);
+    doc.setFontSize(11);
 
-function setChartData(id, label, dataObj){
-  __CHART_DATA[id] = { label, dataObj };
-}
+    const lines = [];
+    Object.keys(row).forEach(k => {
+      if (k === '_actions') return;
+      lines.push(`${k}: ${row[k] ?? ''}`);
+    });
 
-function destroyChart(id){
-  const c = window.__CHARTS?.[id];
-  if (c) { try { c.destroy(); } catch(_){} delete window.__CHARTS[id]; }
-}
+    const maxWidth = 515;
+    let y = 80;
+    const lineHeight = 16;
 
-function drawOrUpdateChart(canvasId, label, dataObj){
-  const ctx = document.getElementById(canvasId); if (!ctx) return;
-  const labels = Object.keys(dataObj);
-  const values = Object.values(dataObj);
-  const type = __CHART_TYPES[canvasId] || 'pie';
+    lines.forEach(text => {
+      const wrapped = doc.splitTextToSize(text, maxWidth);
+      wrapped.forEach(line => {
+        if (y > 780) {
+          doc.addPage();
+          y = 60;
+        }
+        doc.text(line, 40, y);
+        y += lineHeight;
+      });
+    });
 
-  if (!window.__CHARTS) window.__CHARTS = {};
+    doc.save(`rssa_${(row.fullname||'user').toString().replace(/\s+/g,'_')}.pdf`);
+  }
 
-  // If a chart exists but type changed, rebuild it
-  if (window.__CHARTS[canvasId]){
-    const existing = window.__CHARTS[canvasId];
-    if (existing.config.type !== type) {
-      destroyChart(canvasId);
+  /* ---- ANALYTICS: charts for every question + top terms ---- */
+  function renderAnalytics(rows){
+    const countBy = (list) =>
+      list.reduce((m,v)=>{
+        const k=String(v||'').trim();
+        if(!k) return m;
+        m[k]=(m[k]||0)+1;
+        return m;
+      }, {});
+
+    const get = f => rows.map(r => r[f]);
+    const rolesFlat = rows.flatMap(r =>
+      String(r.roles||'').split(';').map(s=>s.trim()).filter(Boolean)
+    );
+
+    const charts = [
+      ['chart_overall_satisfaction', 'Overall Satisfaction', countBy(get('overall_satisfaction'))],
+      ['chart_roles', 'Roles', countBy(rolesFlat)],
+      ['chart_venue_rating', 'Venue & Location', countBy(get('venue_rating'))],
+      ['chart_registration_process', 'Registration', countBy(get('registration_process'))],
+      ['chart_lectures_quality', 'Lectures & Speakers', countBy(get('lectures_quality'))],
+      ['chart_themes_relevance', 'Themes Relevance', countBy(get('themes_relevance'))],
+      ['chart_schedule_duration', 'Session Scheduling', countBy(get('schedule_duration'))],
+      ['chart_communication_rating', 'Communication (1–5)', countBy(get('communication_rating'))],
+      ['chart_event_support_rating', 'Support (1–5)', countBy(get('event_support_rating'))],
+      ['chart_accessibility_rating', 'Accessibility (1–5)', countBy(get('accessibility_rating'))],
+      ['chart_future_interest', 'Future Interest', countBy(get('future_interest'))],
+    ];
+
+    const textCharts = [
+      ['chart_like_most_top', 'Liked Most — Top Terms', topTerms(rows, 'like_most')],
+      ['chart_improve_next_top', 'Improve Next — Top Terms', topTerms(rows, 'improve_next')],
+      ['chart_future_suggestions_top', 'Future Suggestions — Top Terms', topTerms(rows, 'future_suggestions')],
+      ['chart_additional_comments_top', 'Additional Comments — Top Terms', topTerms(rows, 'additional_comments')],
+    ];
+
+    const n = rows.length;
+    const avgSat = avg(rows.map(r => Number(r.overall_satisfaction||0)));
+    document.getElementById('quickStats').innerHTML =
+      `<b>Records:</b> ${n} &nbsp; • &nbsp; <b>Avg Satisfaction:</b> ${isNaN(avgSat)?'-':avgSat.toFixed(2)} &nbsp; • &nbsp; <b>Unique Roles:</b> ${Object.keys(countBy(rolesFlat)).length}`;
+
+    charts.forEach(([id, label, data]) => setChartData(id, label, data));
+    textCharts.forEach(([id, label, data]) => setChartData(id, label, data));
+
+    const btn = document.getElementById('btnToggleCharts');
+    const grid = document.getElementById('chartsGrid');
+
+    function renderAll(){
+      Object.entries(__CHART_DATA).forEach(([cid, info]) => {
+        drawOrUpdateChart(cid, info.label, info.dataObj);
+      });
+    }
+
+    if (btn && !btn.__bound) {
+      btn.__bound = true;
+      btn.addEventListener('click', () => {
+        const showing = grid.style.display !== 'none';
+        if (showing) {
+          grid.style.display = 'none';
+          btn.textContent = 'Hide charts' ? 'Show all charts' : 'Show all charts';
+          btn.textContent = 'Show all charts';
+        } else {
+          grid.style.display = 'grid';
+          grid.querySelectorAll('.chart-card').forEach((el,i)=>{
+            el.classList.remove('fadeSlideIn');
+            setTimeout(()=>el.classList.add('fadeSlideIn'), i*20);
+          });
+          renderAll();
+          btn.textContent = 'Hide charts';
+        }
+      });
+    }
+
+    if (grid && grid.style.display !== 'none') { renderAll(); }
+
+    if (!grid.__typeBound) {
+      grid.__typeBound = true;
+      grid.addEventListener('click', (e)=>{
+        const btn = e.target.closest('.chartToggle');
+        if (!btn) return;
+        const id = btn.getAttribute('data-target');
+        const current = (__CHART_TYPES[id] || 'pie');
+        const next = current === 'pie' ? 'bar' : 'pie';
+        __CHART_TYPES[id] = next;
+        btn.textContent = next === 'pie' ? 'Switch to Bar' : 'Switch to Pie';
+        const info = __CHART_DATA[id];
+        if (info) {
+          destroyChart(id);
+          drawOrUpdateChart(id, info.label, info.dataObj);
+        }
+      });
     }
   }
 
-  if (!window.__CHARTS[canvasId]){
-    window.__CHARTS[canvasId] = new Chart(ctx, {
-      type,
-      data: { labels, datasets: [{ label, data: values }] },
-      options: {
-        responsive: true,
-        plugins: { legend: { position: 'bottom' } },
-        scales: type === 'bar' ? { y: { beginAtZero: true, ticks: { precision: 0 } } } : {}
-      }
-    });
-  } else {
-    const c = window.__CHARTS[canvasId];
-    c.data.labels = labels;
-    c.data.datasets[0].data = values;
-    c.update();
+  function avg(nums){
+    const list = nums.filter(x => !isNaN(x) && x>0);
+    return !list.length ? NaN : list.reduce((a,b)=>a+b,0)/list.length;
   }
-}
 
-const STOPWORDS = new Set(['the','a','an','and','or','to','of','for','in','on','at','is','are','was','were','be','been','it','that','this','with','as','by','from','we','you','your','our','their','they','i','me','my','he','she','his','her','them','us','very','so','too','event','conference','session','sessions','talk','talks','lecture','lectures','speaker','speakers','topic','topics','year','next','time','day','days']);
-function topTerms(rows, field, topN=12){
-  const counts = {}; rows.forEach(r => { const txt = String(r[field] || '').toLowerCase(); if (!txt) return; txt.replace(/[\p{P}\p{S}]/gu,' ').split(/\s+/).map(w => w.trim()).filter(w => w && !STOPWORDS.has(w) && w.length > 2).forEach(w => { counts[w] = (counts[w]||0)+1; }); });
-  const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0, topN); return Object.fromEntries(sorted);
-}
-</script>
+  function setChartData(id, label, dataObj){
+    __CHART_DATA[id] = { label, dataObj };
+  }
 
-<div id="loadingSpinner" class="spinner-overlay hidden">
-  <div class="spinner"></div>
-</div>
+  function destroyChart(id){
+    const c = window.__CHARTS?.[id];
+    if (c) {
+      try { c.destroy(); } catch(_){}
+      delete window.__CHARTS[id];
+    }
+  }
+
+  function drawOrUpdateChart(canvasId, label, dataObj){
+    const ctx = document.getElementById(canvasId); if (!ctx) return;
+    const labels = Object.keys(dataObj);
+    const values = Object.values(dataObj);
+    const type = __CHART_TYPES[canvasId] || 'pie';
+
+    if (!window.__CHARTS) window.__CHARTS = {};
+
+    if (window.__CHARTS[canvasId]){
+      const existing = window.__CHARTS[canvasId];
+      if (existing.config.type !== type) {
+        destroyChart(canvasId);
+      }
+    }
+
+    if (!window.__CHARTS[canvasId]){
+      window.__CHARTS[canvasId] = new Chart(ctx, {
+        type,
+        data: { labels, datasets: [{ label, data: values }] },
+        options: {
+          responsive: true,
+          plugins: { legend: { position: 'bottom' } },
+          scales: type === 'bar' ? { y: { beginAtZero: true, ticks: { precision: 0 } } } : {}
+        }
+      });
+    } else {
+      const c = window.__CHARTS[canvasId];
+      c.data.labels = labels;
+      c.data.datasets[0].data = values;
+      c.update();
+    }
+  }
+
+  const STOPWORDS = new Set([
+    'the','a','an','and','or','to','of','for','in','on','at','is','are','was','were',
+    'be','been','it','that','this','with','as','by','from','we','you','your','our',
+    'their','they','i','me','my','he','she','his','her','them','us','very','so','too',
+    'event','conference','session','sessions','talk','talks','lecture','lectures',
+    'speaker','speakers','topic','topics','year','next','time','day','days'
+  ]);
+  function topTerms(rows, field, topN=12){
+    const counts = {};
+    rows.forEach(r => {
+      const txt = String(r[field] || '').toLowerCase();
+      if (!txt) return;
+      txt.replace(/[\p{P}\p{S}]/gu,' ')
+        .split(/\s+/)
+        .map(w => w.trim())
+        .filter(w => w && !STOPWORDS.has(w) && w.length > 2)
+        .forEach(w => { counts[w] = (counts[w]||0)+1; });
+    });
+    const sorted = Object.entries(counts).sort((a,b)=>b[1]-a[1]).slice(0, topN);
+    return Object.fromEntries(sorted);
+  }
+  </script>
+
+  <!-- Certificate Preview Modal -->
+  <div id="previewModal" class="preview-overlay hidden">
+    <div class="preview-content">
+      <button id="previewClose" class="preview-close">✕ Close</button>
+      <div id="previewBody" class="preview-body"></div>
+    </div>
+  </div>
+
+  <div id="loadingSpinner" class="spinner-overlay hidden">
+    <div class="spinner"></div>
+  </div>
 
 </body>
 </html>
