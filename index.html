@@ -246,6 +246,37 @@
       padding:6px 10px;
       font-size:12px;
     }
+
+    @media only screen and (max-width: 900px) {
+      body {
+        padding: 0 20px;
+      }
+      .card {
+        padding: 12px;
+      }
+      #btnAdmin {
+        display: none;
+      }
+      .field-row {
+        flex-direction: column !important;
+        width: 100%;
+        gap: 6px;
+      }
+
+      input[type="email"],
+      input[type="text"],
+      select,
+      textarea {
+        width: 94% !important;
+        max-width: 100% !important;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
@@ -308,7 +339,7 @@
 
       <label>Overall satisfaction</label>
       <select id="overall_satisfaction">
-        <option value="0">0 ⭐ (Default)</option>
+        <option value="0">0</option>
         <option value="1">⭐ (1 - Poor)</option>
         <option value="2">⭐⭐ (2)</option>
         <option value="3">⭐⭐⭐ (3)</option>
@@ -455,19 +486,19 @@
 
       <label>Communication before event</label>
       <select id="communication_rating">
-        <option value="0">0 ⭐ (Default)</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
+        <option value="0">0</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
         <option>4 ⭐⭐⭐⭐</option><option>5 ⭐⭐⭐⭐⭐</option>
       </select>
 
       <label>Support during event</label>
       <select id="event_support_rating">
-        <option value="0">0 ⭐ (Default)</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
+        <option value="0">0</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
         <option>4 ⭐⭐⭐⭐</option><option>5 ⭐⭐⭐⭐⭐</option>
       </select>
 
       <label>Accessibility of facilities</label>
       <select id="accessibility_rating">
-        <option value="0">0 ⭐ (Default)</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
+        <option value="0">0</option><option>1 ⭐</option><option>2 ⭐⭐</option><option>3 ⭐⭐⭐</option>
         <option>4 ⭐⭐⭐⭐</option><option>5 ⭐⭐⭐⭐⭐</option>
       </select>
 
@@ -476,7 +507,7 @@
 
       <label>Rate the conference’s effectiveness in providing opportunities to build, promote, and enhance your social network</label>
       <select id="networking_rating">
-        <option value="0">0 ⭐ (Default)</option>
+        <option value="0">0</option>
         <option value="1">1 ⭐</option>
         <option value="2">2 ⭐⭐</option>
         <option value="3">3 ⭐⭐⭐</option>
@@ -486,7 +517,7 @@
 
       <label>Rate the conference’s effectiveness in providing opportunities to meet radiology vendors and learn about their services and equipment</label>
       <select id="vendors_rating">
-        <option value="0">0 ⭐ (Default)</option>
+        <option value="0">0 </option>
         <option value="1">1 ⭐</option>
         <option value="2">2 ⭐⭐</option>
         <option value="3">3 ⭐⭐⭐</option>
