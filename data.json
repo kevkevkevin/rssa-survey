@@ -1,4 +1,8 @@
   {
+    "m_shedeed_rad_gmail_com": {
+      "email": "m.shedeed.rad@gmail.com",
+      "files": ["Mohamed Shedeed_attendance.png"]
+    },
   "dr_hamadg_gmail_com": {
     "email": "dr.hamadg@gmail.com",
     "files": ["Dr. Hamad Algedaiby_attendance.png"]
@@ -2551,25 +2555,26 @@
   "jooryradx_gmail_com": {
     "email": "jooryradx@gmail.com",
     "files": [
-      "./Khadija Aldallal/1.png",
-      "./Khadija Aldallal/2.png",
-      "./Khadija Aldallal/3.png"
+      "./Juri Alharbi/1.png",
+      "./Juri Alharbi/2.png",
+      "./Juri Alharbi/3.png"
     ],
     "note": "3 certs for JURI ALHARBI"
   },
   "kdsultan_taibahu_edu_sa": {
     "email": "kdsultan@taibahu.edu.sa",
     "files": [
-      "./Khaled Al Rashdi/1.png",
-      "./Khaled Al Rashdi/2.png"
+      "./Kamal Ali/Kamal Dahan Alsultan_attendance.png",
+      "./Kamal Ali/Kamal Dahan Alsultan_1.png"
     ],
     "note": "2 certs for Kamal ALI"
   },
   "kdjaldallal_gmail_com": {
     "email": "kdjaldallal@gmail.com",
     "files": [
-      "./Khalid Alaamri/1.png",
-      "./Khalid Alaamri/2.png"
+      "./Khadija Aldallal/1.png",
+      "./Khadija Aldallal/2.png",
+      "./Khadija Aldallal/3.png"
     ],
     "note": "2 certs for khadija Aldallal"
   },
