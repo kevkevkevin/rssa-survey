@@ -1141,8 +1141,6 @@
   "dr_bandar432_gmail_com": {
     "email": "dr.bandar432@gmail.com",
     "files": [
-      "./Bashayer Alanaz/1.png",
-      "./Bashayer Alanaz/2.png",
       "./Bashayer Alanaz/3.png"
     ],
     "note": "3 certs for Bandar Alharbi"
@@ -1150,16 +1148,16 @@
   "basel_alsugair_gmail_com": {
     "email": "basel.alsugair@gmail.com",
     "files": [
-      "./Basil Alghamdi/1.png",
-      "./Basil Alghamdi/2.png"
+      "./Basel Alsugair/1.png",
+      "./Basel Alsugair/2.png"
     ],
     "note": "2 certs for Basel Alsugair"
   },
   "bashayer990_a_gmail_com": {
     "email": "bashayer990.a@gmail.com",
     "files": [
-      "./Basma Iskander/1.png",
-      "./Basma Iskander/2.png"
+      "./Bashayer Alanaz/1.png",
+      "./Bashayer Alanaz/2.png"
     ],
     "note": "2 certs for Bashayer Alanazi"
   },
