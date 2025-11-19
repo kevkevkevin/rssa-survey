@@ -631,12 +631,12 @@
           <canvas id="chart_overall_satisfaction"></canvas>
         </div>
 
-        <div class="chart-card"><h4>Roles (multi)</h4>
+       <!--  <div class="chart-card"><h4>Roles (multi)</h4>
           <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
             <button class="chartToggle secondary" data-target="chart_roles" style="padding:4px 8px; font-size:11px">Switch to Bar</button>
           </div>
           <canvas id="chart_roles"></canvas>
-        </div>
+        </div> -->
 
         <div class="chart-card"><h4>Venue & Location</h4>
           <div class="chart-toolbar" style="display:flex; justify-content:flex-end; margin-bottom:6px">
@@ -1412,7 +1412,8 @@
     const n = rows.length;
     const avgSat = avg(rows.map(r => Number(r.overall_satisfaction||0)));
     document.getElementById('quickStats').innerHTML =
-      `<b>Records:</b> ${n} &nbsp; • &nbsp; <b>Avg Satisfaction:</b> ${isNaN(avgSat)?'-':avgSat.toFixed(2)} &nbsp; • &nbsp; <b>Unique Roles:</b> ${Object.keys(countBy(rolesFlat)).length}`;
+      `<b>Records:</b> ${n} &nbsp; • &nbsp; <b>Avg Satisfaction:</b> ${isNaN(avgSat)?'-':avgSat.toFixed(2)} &nbsp; •`;
+      //add this for the uniqie roles (&nbsp; <b>Unique Roles:</b> ${Object.keys(countBy(rolesFlat)).length})
 
     charts.forEach(([id, label, data]) => setChartData(id, label, data));
     textCharts.forEach(([id, label, data]) => setChartData(id, label, data));

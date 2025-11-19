@@ -1,4 +1,24 @@
   {
+    "drfahimamjad_gmail_com": {
+      "email": "drfahimamjad@gmail.com",
+      "files": ["MUHAMMAD_FAHIM_AMJAD_SHEIKH_Attendee.png"]
+    },
+    "nbantan92_gmail_com": {
+      "email": "nbantan92@gmail.com",
+      "files": ["Najwa_Bantan_Attendee.png"]
+    },
+    "falltahjana708_gmail_com": {
+      "email": "falltahjana708@gmail.com",
+      "files": ["Jana_Falltah_Attendee.png"]
+    },
+    "fatimaallkhmi_hotmail_com": {
+      "email": "fatimaallkhmi@hotmail.com",
+      "files": ["Fatimah_Allakhmi_Attendee.png"]
+    },
+    "raghadbalkhair63_gmail_com": {
+      "email": "raghadbalkhair63@gmail.com",
+      "files": ["Raghad_Balkhair_Attendee_Blank.png"]
+    },
     "isara_sk_outlook_com": {
       "email": "isara_sk@outlook.com",
       "files": ["Sara_Alkabli_Attendee_Blank.png"]
@@ -51,7 +71,7 @@
       "email": "salahmcled@gmail.com",
       "files": ["Salah Maklad_attendance.png"]
     },
-    "R_Alhejaily_hotmail_com": {
+    "r_alhejaily_hotmail_com": {
       "email": "R.Alhejaily@hotmail.com",
       "files": ["Reem Alhejaily_attendance.png"]
     },
@@ -1504,27 +1524,27 @@
   "lamualyahya_gmail_com": {
     "email": "lamualyahya@gmail.com",
     "files": [
-      "./Dr Wisal Bushra/1.png",
-      "./Dr Wisal Bushra/2.png",
-      "./Dr Wisal Bushra/3.png",
-      "./Dr Wisal Bushra/4.png"
+      "./Dr Lama Alyahya/1.png",
+      "./Dr Lama Alyahya/2.png",
+      "./Dr Lama Alyahya/3.png",
+      "./Dr Lama Alyahya/4.png"
     ],
     "note": "4 certs for Dr Lama Alyahya"
   },
   "drnqari_gmail_com": {
     "email": "drnqari@gmail.com",
     "files": [
-      "./Dr. Abdullah Al-Mansour/1.png",
-      "./Dr. Abdullah Al-Mansour/2.png"
+      "./Dr Nazerah Abdulaziz/1.png",
+      "./Dr Nazerah Abdulaziz/2.png"
     ],
     "note": "2 certs for Dr Nazerah Abdulaziz"
   },
   "dr_wisalbha_gmail_com": {
     "email": "dr.wisalbha@gmail.com",
     "files": [
-      "./Dr. Abdulsalam Alhawsawi/1.png",
-      "./Dr. Abdulsalam Alhawsawi/2.png",
-      "./Dr. Abdulsalam Alhawsawi/3.png"
+      "./Dr Wisal Bushra/1.png",
+      "./Dr Wisal Bushra/2.png",
+      "./Dr Wisal Bushra/3.png"
     ],
     "note": "3 certs for Dr Wisal Bushra"
   },
@@ -5650,10 +5670,12 @@
       "DR KHALID ALISMAIL.pdf"
     ]
   },
-  "lashka_gmail_com_": {
-    "email": "lashka@gmail.com ",
+  "lashka_gmail_com": {
+    "email": "lashka@gmail.com",
     "files": [
-      "DR LAILA ASHKAR.pdf"
+      "DR LAILA ASHKAR.pdf",
+      "Dr__Laila_Ashkar_Attendee.png",
+      "Dr. Laila Ashkar_1.png"
     ]
   },
   "lgjamjoom_gmail_com": {
