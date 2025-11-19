@@ -1,4 +1,28 @@
   {
+    "oamutawa2_gmail_com": {
+      "email": "oamutawa2@gmail.com",
+      "files": ["Osamah Almutawa_attendance.png"]
+    },
+    "balwuqaisi_kfshrc_edu_sa": {
+      "email": "balwuqaisi@kfshrc.edu.sa",
+      "files": ["Basmah Alwuqaisi_attendance.png"]
+    },
+    "me_mustafa_amc_edu_sa": {
+      "email": "me.mustafa@amc.edu.sa",
+      "files": ["Mohammed Ezzeldien Hamza Mustafa_attendance.png"]
+    },
+    "sul3775_gmail_com": {
+      "email": "sul3775@gmail.com",
+      "files": ["Sultan Aljohani_attendance.png"]
+    },
+    "nseddig_kfshrc_edu_sa": {
+      "email": "nseddig@kfshrc.edu.sa",
+      "files": ["Najlaa Siddiq_attendance.png"]
+    },
+    "jhadadi0003_stu_kau_edu_sa": {
+      "email": "jhadadi0003@stu.kau.edu.sa",
+      "files": ["Jumanah Hadadi_attendance.png"]
+    },
     "salahmcled_gmail_com": {
       "email": "salahmcled@gmail.com",
       "files": ["Salah Maklad_attendance.png"]
@@ -1760,8 +1784,8 @@
   "halmahfoudh_moh_gov_sa": {
     "email": "halmahfoudh@moh.gov.sa",
     "files": [
-      "./Dr. Shaima Abulqasim/1.png",
-      "./Dr. Shaima Abulqasim/2.png"
+      "./Dr. Hamidah Almahfoudh/1.png",
+      "./Dr. Hamidah Almahfoudh/2.png"
     ],
     "note": "2 certs for Dr.\tHamidah Almahfoudh"
   },
