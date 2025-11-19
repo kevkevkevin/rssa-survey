@@ -1,4 +1,16 @@
   {
+    "alsharif_f_kamc_med_sa": {
+      "email": "alsharif.f@kamc.med.sa",
+      "files": ["Fatima_AlSharif_Attendee.png"]
+    },
+    "thmahmed_moh_gov_sa": {
+      "email": "thmahmed@moh.gov.sa",
+      "files": ["Dr__Thamer_Habib_Attendee.png"]
+    },
+    "dr_azouz1_gmail_com": {
+      "email": "dr.azouz1@gmail.com",
+      "files": ["Abdulaziz_Allugmani_Attendee.png"]
+    },
     "shahadkarami_hotmail_com": {
       "email": "shahadkarami@hotmail.com",
       "files": ["Shahad_Karami_Attendee.png"]
@@ -1524,16 +1536,15 @@
   "danaalbalawi5_gmail_com": {
     "email": "danaalbalawi5@gmail.com",
     "files": [
-      "./Dania Shaikh/1.png",
-      "./Dania Shaikh/2.png"
+      "./Danah Albalawi/1.png",
+      "./Danah Albalawi/2.png"
     ],
     "note": "2 certs for Danah Albalawi"
   },
   "4454083_taibahu_edu_sa": {
     "email": "4454083@taibahu.edu.sa",
     "files": [
-      "./Dareen/1.png",
-      "./Dareen/2.png"
+      "./Danah_Almteri_Attendee/1.png"
     ],
     "note": "2 certs for DANAH Almteri"
   },
@@ -1548,8 +1559,8 @@
   "dr_dareen123_gmail_com": {
     "email": "dr.dareen123@gmail.com",
     "files": [
-      "./Djamel Atek/1.png",
-      "./Djamel Atek/2.png"
+      "./Dareen/1.png",
+      "./Dareen/2.png"
     ],
     "note": "2 certs for Dareen"
   },
@@ -1566,26 +1577,26 @@
   "djamelatek_yahoo_fr": {
     "email": "djamelatek@yahoo.fr",
     "files": [
-      "./Dr Abdallah Abosamrh/1.png",
-      "./Dr Abdallah Abosamrh/2.png",
-      "./Dr Abdallah Abosamrh/3.png"
+      "./Djamel Atek/1.png",
+      "./Djamel Atek/2.png",
+      "./Djamel Atek/3.png"
     ],
     "note": "3 certs for DJAMEL ATEK"
   },
   "donarhb123_gmail_com": {
     "email": "donarhb123@gmail.com",
     "files": [
-      "./Dr Lama Alyahya/1.png",
-      "./Dr Lama Alyahya/2.png",
-      "./Dr Lama Alyahya/3.png"
+      "./Dona Babour/1.png",
+      "./Dona Babour/2.png",
+      "./Dona Babour/3.png"
     ],
     "note": "3 certs for Dona Babour"
   },
   "abdalkah_abosamrh_gmail_com": {
     "email": "abdalkah.abosamrh@gmail.com",
     "files": [
-      "./Dr Nazerah Abdulaziz/1.png",
-      "./Dr Nazerah Abdulaziz/2.png"
+      "./Dr Abdallah Abosamrh/1.png",
+      "./Dr Abdallah Abosamrh/2.png"
     ],
     "note": "2 certs for Dr Abdallah Abosamrh"
   },
