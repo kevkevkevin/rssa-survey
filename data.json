@@ -1,15 +1,4 @@
   {
-    "MIss_7anoo_hotmail_com": {
-      "email": "MIss-7anoo@hotmail.com",
-      "files": [
-        "Hanin_Hakem_Alsharif_Attendee_Blank.png",
-        "Hanin_Hakem_Alsharif_1.png",
-        "Hanin_Hakem_Alsharif_2.png",
-        "Hanin_Hakem_Alsharif_3.png",
-        "Hanin_Hakem_Alsharif_4.png",
-        "Hanin_Hakem_Alsharif_5.png"
-      ]
-    },
     "heemoxii98_gmail_com": {
       "email": "heemoxii98@gmail.com",
       "files": ["Ibrahim_ALAHMADI_Attendee_Blank.png"]
@@ -2379,9 +2368,12 @@
   "miss_7anoo_hotmail_com": {
     "email": "miss-7anoo@hotmail.com",
     "files": [
-      "./Hanin Hakem Alsharif/1.png",
-      "./Hanin Hakem Alsharif/2.png",
-      "./Hanin Hakem Alsharif/3.png"
+      "Hanin_Hakem_Alsharif_Attendee_Blank.png",
+        "Hanin_Hakem_Alsharif_1.png",
+        "Hanin_Hakem_Alsharif_2.png",
+        "Hanin_Hakem_Alsharif_3.png",
+        "Hanin_Hakem_Alsharif_4.png",
+        "Hanin_Hakem_Alsharif_5.png"
     ],
     "note": "3 certs for Hanin Hakem Alsharif"
   },
