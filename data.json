@@ -1,4 +1,16 @@
   {
+    "alqudsihussam_gmail_com": {
+      "email": "alqudsihussam@gmail.com",
+      "files": ["Hussam_AlQudsi_1.png"]
+    },
+    "safa_mshariff_gmail_com": {
+      "email": "safa.mshariff@gmail.com",
+      "files": ["Safa_Shariff_1.png"]
+    },
+    "bushraalhejaili_gmail_com": {
+      "email": "bushraalhejaili@gmail.com",
+      "files": ["Bushra_Alhejaili_1.png"]
+    },
     "muhanadesailan_gmail_com": {
       "email": "muhanadesailan@gmail.com",
       "files": ["Muhanad_Esailan_1.png"]
@@ -214,7 +226,7 @@
     },
     "malkabdalluh7_gmail_com": {
       "email": "malkabdalluh7@gmail.com",
-      "files": ["Malak_Abdullah_Attendee_Blank.png"]
+      "files": ["Malak_Abdullah_1.png"]
     },
     "aawali_kfshrc_edu_sa": {
       "email": "aawali@kfshrc.edu.sa",
