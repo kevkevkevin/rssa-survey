@@ -1,4 +1,12 @@
   {
+    "alshoabisultan_yahoo_com": {
+      "email": "alshoabisultan@yahoo.com",
+      "files": ["Sultan_Alshoabi_1.png"]
+    },
+    "buthaynah_m2002_gmail_com": {
+      "email": "buthaynah.m2002@gmail.com",
+      "files": ["Buthaynah_Almarwani_1.png"]
+    },
     "reham_mofti_hotmail_com": {
       "email": "reham.mofti@hotmail.com",
       "files": ["Reham_Mufti_1.png"]
@@ -3968,8 +3976,8 @@
   "alhajjarnawal_gmail_com": {
     "email": "alhajjarnawal@gmail.com",
     "files": [
-      "./Nawal Al-Hajjat/1.png",
-      "./Nawal Al-Hajjat/2.png"
+      "./N_1.png",
+      "./N_2.png"
     ],
     "note": "2 certs for Nawal Al-Hajjat"
   },
